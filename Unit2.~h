@@ -38,6 +38,8 @@ __published:	// IDE-managed Components
         TComboBox *ComboBox1;
         TQuery *Query1;
         TImage *Image5;
+        TEdit *Edit6;
+        TLabel *Label7;
         void __fastcall Edit2KeyPress(TObject *Sender, char &Key);
         void __fastcall Edit4KeyPress(TObject *Sender, char &Key);
         void __fastcall Memo1KeyPress(TObject *Sender, char &Key);
@@ -51,11 +53,41 @@ __published:	// IDE-managed Components
         void __fastcall Edit2Click(TObject *Sender);
         void __fastcall Image5Click(TObject *Sender);
         void __fastcall Edit4Enter(TObject *Sender);
+        void __fastcall Edit6KeyPress(TObject *Sender, char &Key);
 private:	// User declarations
 public:		// User declarations
         String codigo[100];
         int ban,ban1,prueba;
-
+        struct vehiculo{
+                String id;
+                String serialcarroceria;
+                String serialmotor;
+                String numeropoliza;
+                String placa;
+                String anho;
+                String marca_id;
+                String modelo_id;
+                String tipo_id;
+                String color_id;
+                String seguro_id;
+                String uso;
+                String condutores_id;
+        }var;
+        struct marca{
+              String nombre;
+        }var2;
+        struct modelo{
+              String nombre;
+        }var3;
+        struct tipo{
+              String nombre;
+        }var4;
+        struct color{
+              String nombre;
+        }var5;
+        struct seguro{
+              String nombre;
+        }var6;
         __fastcall TForm2(TComponent* Owner);
         void __fastcall formular();
 };

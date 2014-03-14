@@ -126,7 +126,6 @@ __published:	// IDE-managed Components
         TGroupBox *GroupBox2;
         TListBox *ListBox1;
         TListBox *ListBox2;
-        TImage *Image7;
         TPanel *Panel23;
         TImage *Image9;
         TImage *Image10;
@@ -140,19 +139,18 @@ __published:	// IDE-managed Components
         void __fastcall Image1Click(TObject *Sender);
         void __fastcall Image4Click(TObject *Sender);
         void __fastcall Image2Click(TObject *Sender);
-        void __fastcall FormCanResize(TObject *Sender, int &NewWidth,
-          int &NewHeight, bool &Resize);
         void __fastcall Image9Click(TObject *Sender);
         void __fastcall Image10Click(TObject *Sender);
         void __fastcall Image11Click(TObject *Sender);
         void __fastcall Image6Click(TObject *Sender);
+        void __fastcall Image5Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
-        String reparar[30000];
-        int idreparar[30000],totalreparar;
-        String cambiar[30000];
+        String reparar[30000],selectreparar[30000],idreparar[30000];
+        int totalreparar,totalselectreparar;
+        String cambiar[30000],selectcambiar[30000],idcambiar[30000];
         int activado;
-        int idcambiar[30000],totalcambiar;
+        int totalcambiar,totalselectcambiar;
         __fastcall TForm1(TComponent* Owner);
 void __fastcall rellenar();
 void __fastcall llamalo();

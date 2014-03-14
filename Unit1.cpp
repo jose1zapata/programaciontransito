@@ -85,7 +85,6 @@ void __fastcall TForm1::Image1Click(TObject *Sender)
 void __fastcall TForm1::Image4Click(TObject *Sender)
 {
 
-      activado=2;
        if(activado==2){
         Form3->Edit3Click(Sender);
         Form3->formularXD();
@@ -115,19 +114,6 @@ void __fastcall TForm1::Image2Click(TObject *Sender)
 
 
 
-void __fastcall TForm1::FormCanResize(TObject *Sender, int &NewWidth,
-      int &NewHeight, bool &Resize)
-{
-        String x,y;
-        if(NewWidth==1248&&NewHeight==741){
-                Image7->Left=210;
-                Image7->Top=30;
-        }else{
-                Image7->Left=250;
-                Image7->Top=45;
-        }
-}
-//---------------------------------------------------------------------------
 
 
 
@@ -171,6 +157,38 @@ void __fastcall TForm1::Image6Click(TObject *Sender)
         }else{
                 MessageDlg("Debes seleccionar autopartes primero", mtInformation, TMsgDlgButtons() << mbOK, 0);
         }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image5Click(TObject *Sender)
+{
+        totalselectreparar=0;
+        totalselectcambiar=0;
+        ListBox1->Clear();
+        ListBox2->Clear();
+        if(activado==3||activado==4){
+                for (int i=0;i<totalreparar;i++)
+                {
+                        if(CheckListBox1->Checked[i]==true)
+                        {
+                                selectreparar[totalselectreparar]=idreparar[i];
+                                ListBox1->Items->Add(reparar[i]);
+                                totalselectreparar++;
+                        }
+                }
+                for (int i=0;i<totalcambiar;i++)
+                {
+                        if(CheckListBox2->Checked[i]==true)
+                        {
+                                selectcambiar[totalselectcambiar]=idcambiar[i];
+                                ListBox2->Items->Add(cambiar[i]);
+                                totalselectcambiar++;
+                        }
+                }
+                activado=4;
+        }else{
+                MessageDlg("Debe primero Ingresar 'Acta Avaluo accidente'",mtInformation,TMsgDlgButtons()<<mbOK,0);
+        }        
 }
 //---------------------------------------------------------------------------
 

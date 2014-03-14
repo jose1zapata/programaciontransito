@@ -3,7 +3,7 @@ object Form2: TForm2
   Top = 143
   BorderStyle = bsNone
   Caption = 'Form2'
-  ClientHeight = 395
+  ClientHeight = 452
   ClientWidth = 539
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -3523,7 +3523,7 @@ object Form2: TForm2
     Left = 0
     Top = 89
     Width = 539
-    Height = 306
+    Height = 363
     Align = alClient
     Caption = 'Panel3'
     TabOrder = 2
@@ -3531,7 +3531,7 @@ object Form2: TForm2
       Left = 1
       Top = 1
       Width = 537
-      Height = 304
+      Height = 361
       Align = alClient
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -3542,49 +3542,56 @@ object Form2: TForm2
       TabOrder = 0
       object Label1: TLabel
         Left = 8
-        Top = 24
+        Top = 83
         Width = 156
         Height = 18
         Caption = 'Cedula Conductor'
       end
       object Label2: TLabel
         Left = 206
-        Top = 24
+        Top = 83
         Width = 166
         Height = 18
         Caption = 'Nombre Conductor'
       end
       object Label3: TLabel
         Left = 8
-        Top = 79
+        Top = 138
         Width = 163
         Height = 18
         Caption = 'Cedula Propietario'
       end
       object Label4: TLabel
         Left = 204
-        Top = 79
+        Top = 138
         Width = 173
         Height = 18
         Caption = 'Nombre Propietario'
       end
       object Label5: TLabel
         Left = 8
-        Top = 132
+        Top = 191
         Width = 181
         Height = 18
         Caption = 'Telefono Propietario'
       end
       object Label6: TLabel
         Left = 8
-        Top = 188
+        Top = 247
         Width = 177
         Height = 18
         Caption = 'Direcci'#243'n Habitaci'#243'n'
       end
+      object Label7: TLabel
+        Left = 8
+        Top = 25
+        Width = 199
+        Height = 18
+        Caption = 'Ingrese Placa Vehiculo'
+      end
       object Edit1: TEdit
         Left = 8
-        Top = 48
+        Top = 107
         Width = 177
         Height = 26
         TabOrder = 0
@@ -3592,7 +3599,7 @@ object Form2: TForm2
       end
       object Edit2: TEdit
         Left = 205
-        Top = 48
+        Top = 107
         Width = 310
         Height = 26
         TabOrder = 1
@@ -3602,7 +3609,7 @@ object Form2: TForm2
       end
       object Edit3: TEdit
         Left = 8
-        Top = 103
+        Top = 162
         Width = 180
         Height = 26
         TabOrder = 2
@@ -3610,7 +3617,7 @@ object Form2: TForm2
       end
       object Edit4: TEdit
         Left = 204
-        Top = 104
+        Top = 163
         Width = 308
         Height = 26
         TabOrder = 3
@@ -3619,7 +3626,7 @@ object Form2: TForm2
       end
       object Edit5: TEdit
         Left = 104
-        Top = 154
+        Top = 213
         Width = 179
         Height = 26
         TabOrder = 4
@@ -3627,7 +3634,7 @@ object Form2: TForm2
       end
       object Memo1: TMemo
         Left = 2
-        Top = 213
+        Top = 270
         Width = 533
         Height = 89
         Align = alBottom
@@ -3636,12 +3643,20 @@ object Form2: TForm2
       end
       object ComboBox1: TComboBox
         Left = 8
-        Top = 154
+        Top = 213
         Width = 85
         Height = 26
         ItemHeight = 18
         TabOrder = 6
         Text = 'Codigo'
+      end
+      object Edit6: TEdit
+        Left = 8
+        Top = 49
+        Width = 201
+        Height = 26
+        TabOrder = 7
+        OnKeyPress = Edit6KeyPress
       end
     end
   end

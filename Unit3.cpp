@@ -76,15 +76,15 @@ void __fastcall TForm3::formularXD(){
                 }
         }
 
-        for (int i=0;i<59;i++)//MINUTOS
+        for (int i=0;i<60;i++)//MINUTOS
         {
                 if(i<9){
                         MINUTOS[i]="0";
-                        aux=i+1;
+                        aux=i;
                         MINUTOS[i]+=aux;
                         ComboBox4->Items->Add(MINUTOS[i]);
                 }else{
-                        aux=i+1;
+                        aux=i;
                         MINUTOS[i]+=aux;
                         ComboBox4->Items->Add(MINUTOS[i]);
                 }
@@ -116,6 +116,7 @@ void __fastcall TForm3::Image2Click(TObject *Sender)
                                                                                         if(ComboBox7->ItemIndex!=1){
                                                                                                 if(!Edit5->Text.IsEmpty()&&Edit5->Text.Length()){
                                                                                                         if(!Memo2->Text.IsEmpty()){
+                                                                                                                Form1->activado=3;
                                                                                                                 String fechaaccidente,horaaccidente,fechaavaluo,cadena,totale;
                                                                                                                 int total;
                                                                                                                 fechaaccidente=Edit1->Text+"-"+MESES[ComboBox2->ItemIndex]+"-"+DIA[ComboBox1->ItemIndex];

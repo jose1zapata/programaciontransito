@@ -5,6 +5,7 @@
 
 #include "Unit2.h"
 #include "Unit1.h"
+#include "Unit4.h"
 #include "ctype.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -338,3 +339,119 @@ void __fastcall TForm2::Edit4Enter(TObject *Sender)
         }
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm2::Edit6KeyPress(TObject *Sender, char &Key)
+{
+        Key=toupper(Key);
+        String cadena,x;
+        if(Key==13){
+                Form4->Edit1->Text=Edit6->Text;
+                cadena="select count(*) as total from vehiculo where placa='"+Edit6->Text+"'";
+                Query1->Close();
+                Query1->SQL->Clear();
+                Query1->SQL->Add(cadena);
+                Query1->Active=true;
+                if(Query1->FieldByName("total")->Value!=0){
+                cadena="select * from vehiculo where placa='"+Edit6->Text+"'";
+                Query1->Close();
+                Query1->SQL->Clear();
+                Query1->SQL->Add(cadena);
+                Query1->Active=true;
+                var.id=Query1->FieldByName("id")->Value;
+                var.serialcarroceria=Query1->FieldByName("serialcarroceria")->Value;
+                var.serialmotor=Query1->FieldByName("serialmotor")->Value;
+                var.numeropoliza=Query1->FieldByName("numeropoliza")->Value;
+                var.placa=Query1->FieldByName("placa")->Value;
+                var.anho=Query1->FieldByName("anho")->Value;
+                var.marca_id=Query1->FieldByName("marca_id")->Value;
+                var.modelo_id=Query1->FieldByName("modelo_id")->Value;
+                var.tipo_id=Query1->FieldByName("tipo_id")->Value;
+                var.color_id=Query1->FieldByName("color_id")->Value;
+                var.seguro_id=Query1->FieldByName("seguro_id")->Value;
+                var.uso=Query1->FieldByName("uso")->Value;
+                var.condutores_id=Query1->FieldByName("conductores_id")->Value;
+                cadena="select * from marca where id="+var.marca_id;
+	        Query1->Close();
+	        Query1->SQL->Clear();
+	        Query1->SQL->Add(cadena);
+	        Query1->Active=true;
+	        var2.nombre=Query1->FieldByName("nombre")->Value;
+	//-----------------------------------------------------
+	        cadena="select * from modelo where id="+var.modelo_id;
+	        Query1->Close();
+	        Query1->SQL->Clear();
+	        Query1->SQL->Add(cadena);
+	        Query1->Active=true;
+	        var3.nombre=Query1->FieldByName("nombre")->Value;
+	//-----------------------------------------------------
+        	cadena="select * from tipo where id="+var.tipo_id;
+	        Query1->Close();
+        	Query1->SQL->Clear();
+	        Query1->SQL->Add(cadena);
+        	Query1->Active=true;
+	        var4.nombre=Query1->FieldByName("nombre")->Value;
+	//-----------------------------------------------------
+        	cadena="select * from color where id="+var.color_id;
+	        Query1->Close();
+        	Query1->SQL->Clear();
+	        Query1->SQL->Add(cadena);
+        	Query1->Active=true;
+	        var5.nombre=Query1->FieldByName("nombre")->Value;
+	//-----------------------------------------------------
+        	cadena="select * from seguro where id="+var.seguro_id;
+	        Query1->Close();
+        	Query1->SQL->Clear();
+	        Query1->SQL->Add(cadena);
+        	Query1->Active=true;
+	        var6.nombre=Query1->FieldByName("nombre")->Value;
+	//-----------------------------------------------------
+        	Form1->Label19->Caption=var2.nombre;
+	        Form1->Label21->Caption=var3.nombre;
+        	Form1->Label23->Caption=var4.nombre;
+	        Form1->Label25->Caption=var.anho;
+        	Form1->Label27->Caption=var5.nombre;
+	        Form1->Label29->Caption=var.placa;
+        	Form1->Label31->Caption=var.serialcarroceria;
+	        Form1->Label33->Caption=var.serialmotor;
+        	Form1->Label35->Caption=var6.nombre;
+	        Form1->Label37->Caption=var.numeropoliza;
+        	Form1->Label39->Caption=var.id;
+
+	        Form1->activado=2;
+                cadena="select * from conductores where id="+var.condutores_id+"";
+                Query1->Close();
+                Query1->SQL->Clear();
+                Query1->SQL->Add(cadena);
+                Query1->Active=true;
+                x=Query1->FieldByName("cedulaconductor")->Value;
+                Edit1->Text=x;
+                int total=0;
+                total=Edit1->Text.Length();
+                Form1->Label59->Caption=var.uso;
+                        if(total==10){
+                                cadena=Edit1->Text.c_str()[0];
+                                cadena+=Edit1->Text.c_str()[1];
+                                cadena+=Edit1->Text.c_str()[3];
+                                cadena+=Edit1->Text.c_str()[4];
+                                cadena+=Edit1->Text.c_str()[5];
+                                cadena+=Edit1->Text.c_str()[7];
+                                cadena+=Edit1->Text.c_str()[8];
+                                cadena+=Edit1->Text.c_str()[9];
+                                Edit1->Text=cadena;
+                        }else{
+                                cadena=Edit1->Text.c_str()[0];
+                                cadena+=Edit1->Text.c_str()[2];
+                                cadena+=Edit1->Text.c_str()[3];
+                                cadena+=Edit1->Text.c_str()[4];
+                                cadena+=Edit1->Text.c_str()[6];
+                                cadena+=Edit1->Text.c_str()[7];
+                                cadena+=Edit1->Text.c_str()[8];
+                                Edit1->Text=cadena;
+                        }
+                        Edit2Enter(Sender);
+                        Image2->Visible=false;
+                        Image5->Visible=true;
+                }
+        }
+}
+//---------------------------------------------------------------------------
+
