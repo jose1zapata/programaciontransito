@@ -1,10 +1,9 @@
-object Form11: TForm11
-  Left = 192
-  Top = 121
-  BorderStyle = bsNone
-  Caption = 'Form11'
-  ClientHeight = 275
-  ClientWidth = 406
+object Form9: TForm9
+  Left = 498
+  Top = 221
+  Width = 342
+  Height = 290
+  Caption = 'Form9'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,10 +16,10 @@ object Form11: TForm11
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 406
-    Height = 33
+    Width = 326
+    Height = 25
     Align = alTop
-    Caption = 'Buscar Acta'
+    Caption = 'Agregar Seguro'
     Color = clNavy
     Font.Charset = ANSI_CHARSET
     Font.Color = clWhite
@@ -29,11 +28,11 @@ object Form11: TForm11
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    object Image4: TImage
+    object Image1: TImage
       Left = 1
       Top = 1
-      Width = 32
-      Height = 31
+      Width = 24
+      Height = 23
       Align = alLeft
       Picture.Data = {
         0A544A504547496D616765B2520000FFD8FFE000104A46494600010101004800
@@ -704,16 +703,16 @@ object Form11: TForm11
   end
   object Panel2: TPanel
     Left = 0
-    Top = 33
-    Width = 406
-    Height = 72
+    Top = 25
+    Width = 326
+    Height = 64
     Align = alTop
     TabOrder = 1
-    object Image1: TImage
+    object Image2: TImage
       Left = 1
       Top = 1
       Width = 72
-      Height = 70
+      Height = 62
       Align = alLeft
       Picture.Data = {
         0A544A504547496D61676530590000FFD8FFE000104A46494600010101004800
@@ -1432,11 +1431,11 @@ object Form11: TForm11
         7FF5F9BB37607FB381B181C27FD8E575E10735E6F3F5B0F0C305A2307FFFD9}
       Stretch = True
     end
-    object Image2: TImage
-      Left = 327
+    object Image3: TImage
+      Left = 253
       Top = 1
-      Width = 78
-      Height = 70
+      Width = 72
+      Height = 62
       Align = alRight
       Picture.Data = {
         0A544A504547496D616765BC5E0000FFD8FFE000104A46494600010101004800
@@ -2200,11 +2199,11 @@ object Form11: TForm11
         9C4FC6CB7659251193FFD9}
       Stretch = True
     end
-    object Image3: TImage
-      Left = 255
+    object Image4: TImage
+      Left = 181
       Top = 1
       Width = 72
-      Height = 70
+      Height = 62
       Align = alRight
       Picture.Data = {
         0A544A504547496D616765784F0000FFD8FFE000104A46494600010101004800
@@ -2849,10 +2848,31 @@ object Form11: TForm11
   end
   object Panel3: TPanel
     Left = 0
-    Top = 105
-    Width = 406
-    Height = 170
+    Top = 89
+    Width = 326
+    Height = 166
     Align = alClient
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 2
+    object Label1: TLabel
+      Left = 63
+      Top = 40
+      Width = 63
+      Height = 18
+      Caption = 'Seguro'
+    end
+    object Edit1: TEdit
+      Left = 64
+      Top = 64
+      Width = 201
+      Height = 26
+      TabOrder = 0
+      Text = 'Edit1'
+    end
   end
 end

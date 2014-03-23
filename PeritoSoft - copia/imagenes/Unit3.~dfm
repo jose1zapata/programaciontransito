@@ -1,10 +1,11 @@
-object Form11: TForm11
-  Left = 192
-  Top = 121
+object Form3: TForm3
+  Left = 410
+  Top = 125
+  Align = alCustom
   BorderStyle = bsNone
-  Caption = 'Form11'
-  ClientHeight = 275
-  ClientWidth = 406
+  Caption = 'Form3'
+  ClientHeight = 486
+  ClientWidth = 547
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,10 +18,10 @@ object Form11: TForm11
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 406
-    Height = 33
+    Width = 547
+    Height = 25
     Align = alTop
-    Caption = 'Buscar Acta'
+    Caption = 'Registrar acta Avaluo/Accidente'
     Color = clNavy
     Font.Charset = ANSI_CHARSET
     Font.Color = clWhite
@@ -29,11 +30,11 @@ object Form11: TForm11
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    object Image4: TImage
+    object Image1: TImage
       Left = 1
       Top = 1
-      Width = 32
-      Height = 31
+      Width = 24
+      Height = 23
       Align = alLeft
       Picture.Data = {
         0A544A504547496D616765B2520000FFD8FFE000104A46494600010101004800
@@ -704,16 +705,17 @@ object Form11: TForm11
   end
   object Panel2: TPanel
     Left = 0
-    Top = 33
-    Width = 406
+    Top = 25
+    Width = 547
     Height = 72
     Align = alTop
     TabOrder = 1
-    object Image1: TImage
+    object Image2: TImage
       Left = 1
       Top = 1
-      Width = 72
+      Width = 80
       Height = 70
+      Cursor = crHandPoint
       Align = alLeft
       Picture.Data = {
         0A544A504547496D61676530590000FFD8FFE000104A46494600010101004800
@@ -1432,11 +1434,12 @@ object Form11: TForm11
         7FF5F9BB37607FB381B181C27FD8E575E10735E6F3F5B0F0C305A2307FFFD9}
       Stretch = True
     end
-    object Image2: TImage
-      Left = 327
+    object Image3: TImage
+      Left = 472
       Top = 1
-      Width = 78
+      Width = 74
       Height = 70
+      Cursor = crHandPoint
       Align = alRight
       Picture.Data = {
         0A544A504547496D616765BC5E0000FFD8FFE000104A46494600010101004800
@@ -2199,12 +2202,14 @@ object Form11: TForm11
         1D25E0F3F634263936C9B7BC6D9FF87ECED9DA1F99D0DCD0E93F48E56BA41CD8
         9C4FC6CB7659251193FFD9}
       Stretch = True
+      OnClick = Image3Click
     end
-    object Image3: TImage
-      Left = 255
+    object Image4: TImage
+      Left = 400
       Top = 1
       Width = 72
       Height = 70
+      Cursor = crHandPoint
       Align = alRight
       Picture.Data = {
         0A544A504547496D616765784F0000FFD8FFE000104A46494600010101004800
@@ -2846,13 +2851,5 @@ object Form11: TForm11
         386E762307FFD9}
       Stretch = True
     end
-  end
-  object Panel3: TPanel
-    Left = 0
-    Top = 105
-    Width = 406
-    Height = 170
-    Align = alClient
-    TabOrder = 2
   end
 end

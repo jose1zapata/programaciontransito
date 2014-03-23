@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef Unit11H
-#define Unit11H
+#ifndef Unit9H
+#define Unit9H
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
@@ -10,7 +10,7 @@
 #include <ExtCtrls.hpp>
 #include <jpeg.hpp>
 //---------------------------------------------------------------------------
-class TForm11 : public TForm
+class TForm9 : public TForm
 {
 __published:	// IDE-managed Components
         TPanel *Panel1;
@@ -20,11 +20,13 @@ __published:	// IDE-managed Components
         TImage *Image2;
         TImage *Image3;
         TImage *Image4;
+        TLabel *Label1;
+        TEdit *Edit1;
 private:	// User declarations
 public:		// User declarations
-        __fastcall TForm11(TComponent* Owner);
+        __fastcall TForm9(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm11 *Form11;
+extern PACKAGE TForm9 *Form9;
 //---------------------------------------------------------------------------
 #endif
