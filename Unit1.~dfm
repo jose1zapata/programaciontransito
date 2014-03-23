@@ -8828,6 +8828,7 @@ object Form1: TForm1
       object PeritoAvaluador1: TMenuItem
         Caption = 'Buscar Acta'
         ShortCut = 16450
+        OnClick = PeritoAvaluador1Click
       end
       object Salir1: TMenuItem
         Caption = 'Salir'

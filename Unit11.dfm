@@ -1466,6 +1466,7 @@ object Form11: TForm11
         F3FF0053EF01ACBC1D7D0C89860DF06FF58FE1DF6F786F86E6BF1599C8CCE73F
         58E5F7E70796F178F6D86CC305A2307FFFD9}
       Stretch = True
+      OnClick = Image1Click
     end
     object Image2: TImage
       Left = 327
@@ -2929,21 +2930,41 @@ object Form11: TForm11
     TabOrder = 2
     object Label1: TLabel
       Left = 32
-      Top = 32
+      Top = 72
       Width = 272
       Height = 18
       Caption = 'Ingrese el Patron de busqueda'
     end
+    object Label2: TLabel
+      Left = 32
+      Top = 21
+      Width = 274
+      Height = 18
+      Caption = 'Seleccione patron de busqueda'
+    end
     object Edit1: TEdit
       Left = 32
-      Top = 56
+      Top = 96
       Width = 337
       Height = 26
       TabOrder = 0
     end
+    object ComboBox1: TComboBox
+      Left = 32
+      Top = 40
+      Width = 337
+      Height = 26
+      ItemHeight = 18
+      TabOrder = 1
+      Text = 'Seleccione'
+      Items.Strings = (
+        'Cedula Conductor'
+        'Placa Vehiculo'
+        'Numero de Experticia')
+    end
   end
   object Query1: TQuery
-    Left = 80
-    Top = 72
+    Left = 88
+    Top = 56
   end
 end

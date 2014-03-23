@@ -24,13 +24,34 @@ void __fastcall TForm11::Image2Click(TObject *Sender)
 
 void __fastcall TForm11::Image3Click(TObject *Sender)
 {
-        MessageDlg("Puedes buscar por el numero de cedula del conductor\n\n"
-                   "Ejemplo Nombre Conductor: Luis Perez (solo letras)\n\n"
-                   "Ejemplo Cedula Propietario: 17827822 (solo numero)\n\n"
-                   "Ejemplo Nombre Conductor: Carlos Perez (solo letras)\n\n"
-                   "Ejemplo Telefono Propietario: 04141234567 (Solo numeros)\n\n"
-                   "Ejemplo Dirección: Urb Merida 100-24 (Texto y numeros)\n\n"
-                   "Los datos se ingresan así y automáticamente adquieren formato una vez guardado", mtInformation, TMsgDlgButtons() << mbOK, 0);
+        MessageDlg("Seleccione el patron de busqueda para encontrar el acta\n\n"
+                   "Ingrese el patron de busqueda segun lo encontrado"
+                   "haz clic en el boton buscar", mtInformation, TMsgDlgButtons() << mbOK, 0);
 }
 //---------------------------------------------------------------------------
- 
+
+void __fastcall TForm11::Image1Click(TObject *Sender)
+{
+        String valor;
+        String cedulaconductor;
+        if(ComboBox1->ItemIndex!=-1){
+                if(ComboBox1->ItemIndex==0){
+                        Edit1->Text=FormatFloat("##,###,###",Edit1->Text.ToDouble());
+                        valor="select * from conductores where cedulaconductor='"+Edit1->Text+"'";
+                        Query1->Close();
+                        Query1->SQL->Clear();
+                        Query1->SQL->Add(valor);
+                        Query1->Active=true;
+                        cedulaconductor=Query1->FieldByName("cedulaconductor")->Value;
+                        if(cedulaconductor!=NULL){
+                                
+                        }else{
+
+                        }
+                }
+
+        }else{
+                MessageDlg("Seleccione un patrón de busqueda",mtInformation,TMsgDlgButtons()<<mbOK,0);
+        }
+}
+//---------------------------------------------------------------------------

@@ -220,3 +220,10 @@ void __fastcall TForm1::Salir1Click(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
+void __fastcall TForm1::PeritoAvaluador1Click(TObject *Sender)
+{
+        llamalo();
+        Form11->ShowModal();        
+}
+//---------------------------------------------------------------------------
+
