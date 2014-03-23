@@ -130,7 +130,7 @@ void __fastcall TForm3::Image2Click(TObject *Sender)
                                                                                                                 total=Query1->FieldByName("total")->Value;
                                                                                                                 total++;
                                                                                                                 totale=total;
-                                                                                                                cadena="INSERT INTO accidente VALUES("+totale+",'"+Memo1->Text+"','"+fechaaccidente+"','"+horaaccidente+"','"+Edit2->Text+"',"+Form1->Label17->Caption+","+Form1->Label39->Caption+","+idperito+")";
+                                                                                                                cadena="INSERT INTO accidente VALUES("+totale+",'"+Memo1->Text+"','"+fechaaccidente+"','"+horaaccidente+"',"+Edit2->Text+","+Form1->Label39->Caption+","+idperito+")";
                                                                                                                 Query1->Close();
                                                                                                                 Query1->SQL->Clear();
                                                                                                                 Query1->SQL->Add(cadena);

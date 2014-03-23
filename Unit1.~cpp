@@ -85,7 +85,6 @@ void __fastcall TForm1::Image1Click(TObject *Sender)
 void __fastcall TForm1::Image4Click(TObject *Sender)
 {
 
-      activado=2;
        if(activado==2){
         Form3->Edit3Click(Sender);
         Form3->formularXD();
@@ -153,10 +152,30 @@ void __fastcall TForm1::Image11Click(TObject *Sender)
 void __fastcall TForm1::Image6Click(TObject *Sender)
 {
         llamalo();
+        String cadena;
+        String accidente=Label57->Caption;
         if(activado==4){
-                
+                for (int i=0;i<totalselectreparar;i++)
+                {
+                        cadena="INSERT INTO accidentesautoparte VALUES(null,"+selectreparar[i]+","+accidente+")";
+                        Query1->Close();
+                        Query1->SQL->Clear();
+                        Query1->SQL->Add(cadena);
+                        Query1->ExecSQL();
+                }
+                for (int i=0;i<totalselectcambiar;i++)
+                {
+                        cadena="INSERT INTO accidentesautoparte VALUES(null,"+selectcambiar[i]+","+accidente+")";
+                        Query1->Close();
+                        Query1->SQL->Clear();
+                        Query1->SQL->Add(cadena);
+                        Query1->ExecSQL();
+                }
+                MessageDlg("Agregado con éxito",mtInformation,TMsgDlgButtons()<<mbOK,0);
+                Image6->Visible=false;
+                Image12->Visible=true;        
         }else{
-                MessageDlg("Debes seleccionar autopartes primero", mtInformation, TMsgDlgButtons() << mbOK, 0);
+                MessageDlg("Debes seleccionar autopartes de cambio o reparación primero", mtInformation, TMsgDlgButtons() << mbOK, 0);
         }
 }
 //---------------------------------------------------------------------------

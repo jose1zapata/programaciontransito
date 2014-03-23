@@ -116,6 +116,7 @@ void __fastcall TForm3::Image2Click(TObject *Sender)
                                                                                         if(ComboBox7->ItemIndex!=1){
                                                                                                 if(!Edit5->Text.IsEmpty()&&Edit5->Text.Length()){
                                                                                                         if(!Memo2->Text.IsEmpty()){
+                                                                                                                Form1->activado=3;
                                                                                                                 String fechaaccidente,horaaccidente,fechaavaluo,cadena,totale;
                                                                                                                 int total;
                                                                                                                 fechaaccidente=Edit1->Text+"-"+MESES[ComboBox2->ItemIndex]+"-"+DIA[ComboBox1->ItemIndex];
