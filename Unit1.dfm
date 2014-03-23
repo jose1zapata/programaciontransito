@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 182
-  Top = 126
+  Left = 138
+  Top = 107
   BorderStyle = bsNone
   Caption = 'Asociaci'#243'n de Peritos Avaluadores Software'
   ClientHeight = 686
@@ -8826,7 +8826,12 @@ object Form1: TForm1
         ShortCut = 16449
       end
       object PeritoAvaluador1: TMenuItem
-        Caption = 'Agregar perito'
+        Caption = 'Buscar Acta'
+        ShortCut = 16450
+      end
+      object Salir1: TMenuItem
+        Caption = 'Salir'
+        OnClick = Salir1Click
       end
     end
     object menu21: TMenuItem

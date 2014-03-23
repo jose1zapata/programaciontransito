@@ -212,3 +212,9 @@ void __fastcall TForm1::Image5Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::Salir1Click(TObject *Sender)
+{
+        Image10Click(Sender);        
+}
+//---------------------------------------------------------------------------
+

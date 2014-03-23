@@ -136,6 +136,7 @@ __published:	// IDE-managed Components
         TLabel *Label57;
         TLabel *Label58;
         TLabel *Label59;
+        TMenuItem *Salir1;
         void __fastcall Image1Click(TObject *Sender);
         void __fastcall Image4Click(TObject *Sender);
         void __fastcall Image2Click(TObject *Sender);
