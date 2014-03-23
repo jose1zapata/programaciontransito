@@ -3251,7 +3251,7 @@ object Form3: TForm3
         Height = 26
         ItemHeight = 18
         TabOrder = 13
-        Text = #39
+        Text = 'Mes'
         Items.Strings = (
           'Ene'#9
           'Feb'#9

@@ -4,7 +4,7 @@ object Form11: TForm11
   BorderStyle = bsNone
   Caption = 'Form11'
   ClientHeight = 275
-  ClientWidth = 349
+  ClientWidth = 406
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object Form11: TForm11
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 349
+    Width = 406
     Height = 33
     Align = alTop
     Caption = 'Buscar Acta'
@@ -705,7 +705,7 @@ object Form11: TForm11
   object Panel2: TPanel
     Left = 0
     Top = 33
-    Width = 349
+    Width = 406
     Height = 72
     Align = alTop
     TabOrder = 1
@@ -1433,7 +1433,7 @@ object Form11: TForm11
       Stretch = True
     end
     object Image2: TImage
-      Left = 270
+      Left = 327
       Top = 1
       Width = 78
       Height = 70
@@ -2199,9 +2199,10 @@ object Form11: TForm11
         1D25E0F3F634263936C9B7BC6D9FF87ECED9DA1F99D0DCD0E93F48E56BA41CD8
         9C4FC6CB7659251193FFD9}
       Stretch = True
+      OnClick = Image2Click
     end
     object Image3: TImage
-      Left = 198
+      Left = 255
       Top = 1
       Width = 72
       Height = 70
@@ -2845,14 +2846,39 @@ object Form11: TForm11
         DBA4B7DBE49A5865996A1CEA856B9DB4E6B19926C3189964C4F41E6BD7A6ECE3
         386E762307FFD9}
       Stretch = True
+      OnClick = Image3Click
     end
   end
   object Panel3: TPanel
     Left = 0
     Top = 105
-    Width = 349
+    Width = 406
     Height = 170
     Align = alClient
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 2
+    object Label1: TLabel
+      Left = 32
+      Top = 32
+      Width = 272
+      Height = 18
+      Caption = 'Ingrese el Patron de busqueda'
+    end
+    object Edit1: TEdit
+      Left = 32
+      Top = 56
+      Width = 337
+      Height = 26
+      TabOrder = 0
+    end
+  end
+  object Query1: TQuery
+    Left = 80
+    Top = 72
   end
 end
