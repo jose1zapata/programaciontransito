@@ -8,6 +8,7 @@
 #include "Unit3.h"
 #include "Unit4.h"
 #include "Unit10.h"
+#include "Unit11.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -217,4 +218,5 @@ void __fastcall TForm1::Salir1Click(TObject *Sender)
         Image10Click(Sender);        
 }
 //---------------------------------------------------------------------------
+
 
