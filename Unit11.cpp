@@ -33,8 +33,8 @@ void __fastcall TForm11::Image3Click(TObject *Sender)
 void __fastcall TForm11::Image1Click(TObject *Sender)
 {
         String valor;
-        String cedulaconductor,cedulapropietario,cadena;
-        int total;
+        String cedulaconductor,cedulapropietario,cadena,x,y;
+        int total,i=0;
         if(ComboBox1->ItemIndex!=-1){
                 if(ComboBox1->ItemIndex==0){
                     if(!Edit1->Text.IsEmpty()){
@@ -46,13 +46,31 @@ void __fastcall TForm11::Image1Click(TObject *Sender)
                         Query1->Active=true;
                         total=Query1->FieldByName("total")->Value;
                         if(total>0&&total<=2){
-                                valor="select * as total from conductores where cedulaconductor='"+cadena+"' or cedulapropietario='"+cadena+"'";
-                                Query1->Close();
-                                Query1->SQL->Clear();
-                                Query1->SQL->Add(valor);
-                                Query1->Active=true;
-                                cedulaconductor=Query1->FieldByName("cedulaconductor")->Value;
-                                cedulapropietario=Query1->FieldByName("cedulapropietario")->Value;
+                                if(total==2){
+                                        valor="select * from conductores where cedulaconductor='"+cadena+"' or cedulapropietario='"+cadena+"'";
+                                        Query1->Close();
+                                        Query1->SQL->Clear();
+                                        Query1->SQL->Add(valor);
+                                        Query1->Active=true;
+                                        Query1->First();
+                                        while(!Query1->Eof){
+                                                if(i%2==0)
+                                                        x=Query1->FieldByName("id")->Value;
+                                                else
+                                                        y=Query1->FieldByName("id")->Value;
+                                                i++;
+                                                Query1->Next();
+                                        }
+                                }else{
+                                        valor="select * from conductores where cedulaconductor='"+cadena+"' or cedulapropietario='"+cadena+"'";
+                                        Query1->Close();
+                                        Query1->SQL->Clear();
+                                        Query1->SQL->Add(valor);
+                                        Query1->Active=true;
+                                        x=Query1->FieldByName("id")->Value;
+                                        valor="select * from accidente where conductore_id="+x;
+                                }
+
 
 
                         }else{

@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 201
-  Top = 122
+  Left = 206
+  Top = 86
   BorderStyle = bsNone
   Caption = 'Asociaci'#243'n de Peritos Avaluadores Software'
   ClientHeight = 686
