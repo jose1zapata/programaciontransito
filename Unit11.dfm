@@ -2964,6 +2964,7 @@ object Form11: TForm11
     end
   end
   object Query1: TQuery
+    DatabaseName = 'base'
     Left = 88
     Top = 56
   end

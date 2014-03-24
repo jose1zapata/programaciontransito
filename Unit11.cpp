@@ -33,21 +33,34 @@ void __fastcall TForm11::Image3Click(TObject *Sender)
 void __fastcall TForm11::Image1Click(TObject *Sender)
 {
         String valor;
-        String cedulaconductor;
+        String cedulaconductor,cedulapropietario,cadena;
+        int total;
         if(ComboBox1->ItemIndex!=-1){
                 if(ComboBox1->ItemIndex==0){
-                        Edit1->Text=FormatFloat("##,###,###",Edit1->Text.ToDouble());
-                        valor="select * from conductores where cedulaconductor='"+Edit1->Text+"'";
+                    if(!Edit1->Text.IsEmpty()){
+                        cadena=FormatFloat("##,###,###",Edit1->Text.ToDouble());
+                        valor="select count(*) as total from conductores where cedulaconductor='"+cadena+"' or cedulapropietario='"+cadena+"'";
                         Query1->Close();
                         Query1->SQL->Clear();
                         Query1->SQL->Add(valor);
                         Query1->Active=true;
-                        cedulaconductor=Query1->FieldByName("cedulaconductor")->Value;
-                        if(cedulaconductor!=NULL){
-                                
-                        }else{
+                        total=Query1->FieldByName("total")->Value;
+                        if(total>0&&total<=2){
+                                valor="select * as total from conductores where cedulaconductor='"+cadena+"' or cedulapropietario='"+cadena+"'";
+                                Query1->Close();
+                                Query1->SQL->Clear();
+                                Query1->SQL->Add(valor);
+                                Query1->Active=true;
+                                cedulaconductor=Query1->FieldByName("cedulaconductor")->Value;
+                                cedulapropietario=Query1->FieldByName("cedulapropietario")->Value;
 
+
+                        }else{
+                                MessageDlg("No está el conductor con esa cedula de identidad. Intente con otra u otro patron de busqueda",mtInformation,TMsgDlgButtons()<<mbOK,0);
                         }
+                    }else{
+                        MessageDlg("Escriba el patrón de busqueda",mtInformation,TMsgDlgButtons()<<mbOK,0);
+                    }
                 }
 
         }else{

@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 138
-  Top = 107
+  Left = 201
+  Top = 122
   BorderStyle = bsNone
   Caption = 'Asociaci'#243'n de Peritos Avaluadores Software'
   ClientHeight = 686
@@ -4112,6 +4112,7 @@ object Form1: TForm1
         Top = 0
         Width = 85
         Height = 77
+        Cursor = crHandPoint
         Align = alLeft
         Picture.Data = {
           0A544A504547496D61676530590000FFD8FFE000104A46494600010101004800
@@ -4836,6 +4837,7 @@ object Form1: TForm1
         Top = 0
         Width = 92
         Height = 77
+        Cursor = crHandPoint
         Align = alLeft
         Picture.Data = {
           0A544A504547496D616765F5560000FFD8FFE000104A46494600010101004800
@@ -6252,6 +6254,7 @@ object Form1: TForm1
       Top = 1
       Width = 56
       Height = 55
+      Cursor = crHandPoint
       Align = alRight
       Picture.Data = {
         0A544A504547496D616765324C0000FFD8FFE000104A46494600010101004800
@@ -6874,6 +6877,7 @@ object Form1: TForm1
       Top = 1
       Width = 55
       Height = 55
+      Cursor = crHandPoint
       Align = alRight
       Picture.Data = {
         0A544A504547496D616765D8490000FFD8FFE000104A46494600010101004800
@@ -8148,6 +8152,7 @@ object Form1: TForm1
       Top = 1
       Width = 64
       Height = 55
+      Cursor = crHandPoint
       Align = alRight
       Picture.Data = {
         0A544A504547496D616765A8520000FFD8FFE000104A46494600010101004800
