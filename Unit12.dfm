@@ -3,6 +3,7 @@ object Form12: TForm12
   Top = 127
   Width = 899
   Height = 500
+  VertScrollBar.Position = 161
   Caption = 'Form12'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,9 +17,9 @@ object Form12: TForm12
   TextHeight = 13
   object QuickRep3: TQuickRep
     Left = 16
-    Top = 0
-    Width = 761
-    Height = 1064
+    Top = -161
+    Width = 816
+    Height = 1056
     Frame.Color = clBlack
     Frame.DrawTop = False
     Frame.DrawBottom = False
@@ -63,8 +64,8 @@ object Form12: TForm12
     object QRBand1: TQRBand
       Left = 38
       Top = 38
-      Width = 685
-      Height = 243
+      Width = 740
+      Height = 259
       Frame.Color = clBlack
       Frame.DrawTop = False
       Frame.DrawBottom = False
@@ -72,22 +73,22 @@ object Form12: TForm12
       Frame.DrawRight = False
       AlignToBottom = False
       Color = clWhite
-      Font.Charset = DEFAULT_CHARSET
+      Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Arial'
+      Font.Height = -11
+      Font.Name = 'Franklin Gothic Book'
       Font.Style = []
       ForceNewColumn = False
       ForceNewPage = False
       ParentFont = False
       Size.Values = (
-        642.9375
-        1812.39583333333)
+        685.270833333333
+        1957.91666666667)
       BandType = rbTitle
       object QRLabel7: TQRLabel
         Left = 8
         Top = 154
-        Width = 99
+        Width = 81
         Height = 17
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -98,7 +99,7 @@ object Form12: TForm12
           44.9791666666667
           21.1666666666667
           407.458333333333
-          261.9375)
+          214.3125)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -107,12 +108,12 @@ object Form12: TForm12
         Color = clWhite
         Transparent = False
         WordWrap = True
-        FontSize = 9
+        FontSize = 8
       end
       object QRLabel8: TQRLabel
         Left = 8
         Top = 172
-        Width = 90
+        Width = 74
         Height = 16
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -123,7 +124,7 @@ object Form12: TForm12
           42.3333333333333
           21.1666666666667
           455.083333333333
-          238.125)
+          195.791666666667)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -132,12 +133,12 @@ object Form12: TForm12
         Color = clWhite
         Transparent = False
         WordWrap = True
-        FontSize = 9
+        FontSize = 8
       end
       object QRLabel9: TQRLabel
         Left = 109
         Top = 154
-        Width = 57
+        Width = 47
         Height = 16
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -148,7 +149,7 @@ object Form12: TForm12
           42.3333333333333
           288.395833333333
           407.458333333333
-          150.8125)
+          124.354166666667)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -157,12 +158,12 @@ object Form12: TForm12
         Color = clWhite
         Transparent = False
         WordWrap = True
-        FontSize = 9
+        FontSize = 8
       end
       object QRLabel10: TQRLabel
         Left = 101
         Top = 172
-        Width = 64
+        Width = 53
         Height = 16
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -173,7 +174,7 @@ object Form12: TForm12
           42.3333333333333
           267.229166666667
           455.083333333333
-          169.333333333333)
+          140.229166666667)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -182,12 +183,12 @@ object Form12: TForm12
         Color = clWhite
         Transparent = False
         WordWrap = True
-        FontSize = 9
+        FontSize = 8
       end
       object QRLabel11: TQRLabel
         Left = 445
         Top = 192
-        Width = 1
+        Width = 53
         Height = 16
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -198,20 +199,21 @@ object Form12: TForm12
           42.3333333333333
           1177.39583333333
           508
-          2.64583333333333)
+          140.229166666667)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
         AutoStretch = False
+        Caption = 'QRLabel11'
         Color = clWhite
         Transparent = False
         WordWrap = True
-        FontSize = 9
+        FontSize = 8
       end
       object QRLabel12: TQRLabel
         Left = 546
         Top = 192
-        Width = 1
+        Width = 53
         Height = 33
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -222,20 +224,21 @@ object Form12: TForm12
           87.3125
           1444.625
           508
-          2.64583333333333)
+          140.229166666667)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
         AutoStretch = False
+        Caption = 'QRLabel12'
         Color = clWhite
         Transparent = False
         WordWrap = True
-        FontSize = 9
+        FontSize = 8
       end
       object QRMemo2: TQRMemo
-        Left = 347
+        Left = 352
         Top = 8
-        Width = 60
+        Width = 51
         Height = 185
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -244,9 +247,9 @@ object Form12: TForm12
         Frame.DrawRight = False
         Size.Values = (
           489.479166666667
-          918.104166666667
+          931.333333333333
           21.1666666666667
-          158.75)
+          134.9375)
         Alignment = taCenter
         AlignToBand = False
         AutoSize = True
@@ -254,14 +257,45 @@ object Form12: TForm12
         Color = clWhite
         Transparent = False
         WordWrap = True
-        FontSize = 9
+        FontSize = 8
+      end
+      object QRLabel1: TQRLabel
+        Left = 312
+        Top = 232
+        Width = 94
+        Height = 16
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          42.3333333333333
+          825.5
+          613.833333333333
+          248.708333333333)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'ACTA DE AVALUO'
+        Color = clWhite
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Franklin Gothic Book'
+        Font.Style = [fsBold, fsUnderline]
+        ParentFont = False
+        Transparent = False
+        WordWrap = True
+        FontSize = 8
       end
     end
     object QRBand2: TQRBand
       Left = 38
-      Top = 281
-      Width = 685
-      Height = 264
+      Top = 297
+      Width = 740
+      Height = 248
       Frame.Color = clBlack
       Frame.DrawTop = False
       Frame.DrawBottom = False
@@ -269,38 +303,43 @@ object Form12: TForm12
       Frame.DrawRight = False
       AlignToBottom = False
       Color = clWhite
-      Font.Charset = DEFAULT_CHARSET
+      Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
-      Font.Name = 'Arial'
+      Font.Name = 'Franklin Gothic Book'
       Font.Style = []
       ForceNewColumn = False
       ForceNewPage = False
       ParentFont = False
       Size.Values = (
-        698.5
-        1812.39583333333)
+        656.166666666667
+        1957.91666666667)
       BandType = rbDetail
       object QRMemo1: TQRMemo
-        Left = 5
-        Top = 8
-        Width = 2809
-        Height = 105
+        Left = 1
+        Top = 3
+        Width = 696
+        Height = 238
         Frame.Color = clBlack
         Frame.DrawTop = False
         Frame.DrawBottom = False
         Frame.DrawLeft = False
         Frame.DrawRight = False
         Size.Values = (
-          277.8125
-          13.2291666666667
-          21.1666666666667
-          7432.14583333333)
+          629.708333333333
+          2.64583333333333
+          7.9375
+          1841.5)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
         AutoStretch = False
         Color = clWhite
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Franklin Gothic Book'
+        Font.Style = []
         Lines.Strings = (
           
             'QUIEN SUSCRIBE ROLANDO ROJAS, TITULAR DE LA C'#201'DULA DE IDENTIDAD ' +
@@ -309,47 +348,36 @@ object Form12: TForm12
             'PERITOS  AVALUADORES  DE TR'#193'NSITO DE VENEZUELA CON EL C'#211'DIGO N'#186' ' +
             '6103 EN  MI CAR'#193'CTER DE  EXPERTO DESIGNADO POR LA '
           
-            'GERENCIA DE SERVICIOS CONEXOS DEL INSTITUTO NACIONAL DEL TRANSPO' +
-            'RTE TERRESTRE Y ESTANDO LEGALMENTE JURAMENTADO COMO PERITO AVALU' +
-            'ADOR Y AJUSTADOR DE PERDIDAS, DE CONFORMIDAD CON EL ART'#205'CULO 200' +
-            ', ORDINAL 3 DE LA LEY DE TRANSPORTE TERRESTRE; SE EFECT'#218'A EL PRE' +
-            'SENTE AVALU'#211', SIGUIENDO INSTRUCCIONES DE LA OFICINA PROCESADORA ' +
-            'DE ACCIDENTES, SEG'#218'N ORDEN/OFICIO N'#186
+            'GERENCIA   DE   SERVICIOS   CONEXOS   DEL   INSTITUTO   NACIONAL' +
+            '   DEL   TRANSPORTE   TERRESTRE  Y   ESTANDO   LEGALMENTE '
+          
+            'JURAMENTADO  COMO PERITO AVALUADOR Y AJUSTADOR DE PERDIDAS, DE C' +
+            'ONFORMIDAD CON EL ART'#205'CULO 200, ORDINAL 3 DE LA '
+          
+            'LEY DE TRANSPORTE TERRESTRE; SE EFECT'#218'A EL PRESENTE AVALU'#211', SIGU' +
+            'IENDO INSTRUCCIONES DE LA OFICINA PROCESADORA '
+          'DE ACCIDENTES, SEG'#218'N ORDEN/OFICIO N'#186
           ''
           'METODOLOG'#205'A APLICADA'
           ''
           
-            'A.- VALOR DE MERCADO PARA EL BIEN INVOLUCRADO EN EL SINIESTRO (V' +
-            'EH'#205'CULO, PARTES Y PIEZAS O CISTERNAS QUE LO INTEGRAN Y OTROS BIE' +
-            'NES SUSCEPTIBLES DE SUFRIR DA'#209'OS EN EL ACCIDENTE) B.- M'#201'TODO DE ' +
-            'DEPRECIACI'#211'N APLICADA (L'#205'NEA RECTA) C.- EL C'#193'LCULO DE LA MANO DE' +
-            ' OBRA EST'#193' BASADA EN LA METODOLOG'#205'A UTILIZADA POR LA C'#193'MARA NACI' +
-            'ONAL DE TALLERES MEC'#193'NICOS (HORAS HOMBRES, MANO DE OBRA ESPECIAL' +
-            'IZADA Y/O SIN ESPECIALIZACI'#211'N, TIEMPO ESTIMADO DE REPARACI'#211'N POR' +
-            ' PIEZA O UNIDAD VEHICULAR).')
+            'A.- VALOR   DE  MERCADO  PARA   EL  BIEN  INVOLUCRADO   EN  EL  ' +
+            'SINIESTRO  (VEH'#205'CULO,  PARTES  Y  PIEZAS  O  CISTERNAS  QUE  LO '
+          
+            'INTEGRAN  Y  OTROS  BIENES  SUSCEPTIBLES DE SUFRIR  DA'#209'OS EN EL ' +
+            'ACCIDENTE) B.- M'#201'TODO DE DEPRECIACI'#211'N APLICADA (L'#205'NEA '
+          
+            'RECTA)  C.-  EL  C'#193'LCULO  DE  LA  MANO  DE  OBRA  EST'#193'  BASADA  ' +
+            'EN  LA  METODOLOG'#205'A  UTILIZADA  POR  LA  C'#193'MARA  NACIONAL  DE '
+          
+            'TALLERES  MEC'#193'NICOS  (HORAS  HOMBRES,  MANO DE  OBRA  ESPECIALIZ' +
+            'ADA  Y/O   SIN   ESPECIALIZACI'#211'N,   TIEMPO  ESTIMADO  DE '
+          'REPARACI'#211'N  POR  PIEZA  O  UNIDAD  VEHICULAR).')
+        ParentFont = False
         Transparent = False
         WordWrap = True
-        FontSize = 8
+        FontSize = 9
       end
-    end
-    object QRBand3: TQRBand
-      Left = 38
-      Top = 545
-      Width = 685
-      Height = 40
-      Frame.Color = clBlack
-      Frame.DrawTop = False
-      Frame.DrawBottom = False
-      Frame.DrawLeft = False
-      Frame.DrawRight = False
-      AlignToBottom = False
-      Color = clWhite
-      ForceNewColumn = False
-      ForceNewPage = False
-      Size.Values = (
-        105.833333333333
-        1812.39583333333)
-      BandType = rbDetail
     end
   end
 end

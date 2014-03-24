@@ -249,7 +249,6 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
         while(p!=NULL){
                 cadena=p;
                 Form12->QRMemo2->Lines->Add(cadena);
-                Form12->QRMemo2->Lines->Add("");
                 p=strtok(NULL,"\n");
         }
         i=0;
@@ -273,6 +272,8 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                 p=strtok(NULL,"-");
                 i++;
         }
+        Form12->QRLabel9->Caption=Label45->Caption;
+        Form12->QRLabel10->Caption=Label43->Caption;
         Form12->QRLabel12->Caption=x+y+z;
         Form12->QuickRep3->Preview();
 }

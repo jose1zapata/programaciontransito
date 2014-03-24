@@ -137,6 +137,7 @@ CREATE  TABLE IF NOT EXISTS `apasoftware`.`perito` (
   `profesion` VARCHAR(45) NULL ,
   `cedula` VARCHAR(45) NOT NULL ,
   `unidad` VARCHAR(45) NOT NULL ,
+  `codigo` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = MyISAM;
 
@@ -237,7 +238,7 @@ ENGINE = MyISAM;
 CREATE  TABLE IF NOT EXISTS `apasoftware`.`encabezado` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `cabecera` TEXT NOT NULL ,
-  `primera parte` TEXT NOT NULL ,
+  `primeraparte` TEXT NOT NULL ,
   `sitio` TEXT NOT NULL ,
   `perito_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,

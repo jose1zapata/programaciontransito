@@ -17,7 +17,6 @@ __published:	// IDE-managed Components
         TQuickRep *QuickRep3;
         TQRBand *QRBand1;
         TQRBand *QRBand2;
-        TQRBand *QRBand3;
         TQRLabel *QRLabel7;
         TQRLabel *QRLabel8;
         TQRLabel *QRLabel9;
@@ -26,6 +25,7 @@ __published:	// IDE-managed Components
         TQRLabel *QRLabel12;
         TQRMemo *QRMemo1;
         TQRMemo *QRMemo2;
+        TQRLabel *QRLabel1;
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm12(TComponent* Owner);

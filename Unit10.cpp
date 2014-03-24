@@ -91,14 +91,17 @@ void __fastcall TForm10::Edit5KeyPress(TObject *Sender, char &Key)
 
 void __fastcall TForm10::Image2Click(TObject *Sender)
 {
-        String cadena,aux,encabezado;
+        String cadena,aux,encabezado,primeraparte,x,T;
+        char palabrota[30000],*p;
         if(!Edit1->Text.IsEmpty()){
                 if(!Edit2->Text.IsEmpty()){
                         if(!Edit4->Text.IsEmpty()){
                                 if(!Edit5->Text.IsEmpty()){
                                         if(ComboBox1->ItemIndex!=-1){
+                                                String nombre,cedula;
+                                                int i=0;
                                                 aux=Edit5->Text+" ESTADO "+estados[ComboBox1->ItemIndex];
-                                                cadena="INSERT INTO perito VALUES(1,'"+Edit1->Text+"','"+Edit2->Text+"','"+Edit3->Text+"','"+Edit4->Text+"','"+aux+"')";
+                                                cadena="INSERT INTO perito VALUES(1,'"+Edit1->Text+"','"+Edit2->Text+"','"+Edit3->Text+"','"+Edit4->Text+"','"+aux+"','6030')";
                                                 Query1->Close();
                                                 Query1->SQL->Clear();
                                                 Query1->SQL->Add(cadena);
@@ -106,11 +109,30 @@ void __fastcall TForm10::Image2Click(TObject *Sender)
                                                 MessageDlg("Insertado con éxito",mtInformation,TMsgDlgButtons()<<mbOK,0);
                                                 Form10->Close();
                                                 encabezado="REPÚBLICA BOLIVARIANA DE VENEZUELA\nINSTITUTO NACIONAL DE TRANSPORTE TERRESTRE\nGERENCIA DE SERVICIOS CONEXOS\nASOCIACIÓN DE PERITOS AVALUADORES DE TRÁNSITO DE VENEZUELA\nUNIDAD "+aux;
-                                                cadena="insert into encabezado values(1,'"+encabezado+"','','SAN CRISTÓBAL',1)";
+                                                primeraparte="QUIEN SUSCRIBE XXXX, TITULAR DE LA CÉDULA DE IDENTIDAD Nº XXXX, MIEMBRO ACTIVO DE LA ASOCIACIÓN DE\nPERITOS  AVALUADORES  DE TRÁNSITO DE VENEZUELA CON EL CÓDIGO Nº XXXX EN  MI CARÁCTER DE  EXPERTO DESIGNADO POR LA\nGERENCIA   DE   SERVICIOS   CONEXOS   DEL   INSTITUTO   NACIONAL   DEL   TRANSPORTE   TERRESTRE  Y   ESTANDO   LEGALMENTE\nJURAMENTADO  COMO PERITO AVALUADOR Y AJUSTADOR DE PERDIDAS, DE CONFORMIDAD CON EL ARTÍCULO 200, ORDINAL 3 DE LA\nLEY DE TRANSPORTE TERRESTRE; SE EFECTÚA EL PRESENTE AVALUÓ, SIGUIENDO INSTRUCCIONES DE LA OFICINA PROCESADORA\nDE ACCIDENTES, SEGÚN ORDEN/OFICIO Nº\n\nMETODOLOGÍA APLICADA\n\nA.- VALOR   DE  MERCADO  PARA   EL  BIEN  INVOLUCRADO   EN  EL  SINIESTRO  (VEHÍCULO,  PARTES  Y  PIEZAS  O  CISTERNAS  QUE  LO\nINTEGRAN  Y  OTROS  BIENES  SUSCEPTIBLES DE SUFRIR  DAÑOS EN EL ACCIDENTE) B.- MÉTODO DE DEPRECIACIÓN APLICADA (LÍNEA";
+                                                x="\nRECTA)  C.-  EL  CÁLCULO  DE  LA  MANO  DE  OBRA  ESTÁ  BASADA  EN  LA  METODOLOGÍA  UTILIZADA  POR  LA  CÁMARA  NACIONAL  DE\nTALLERES  MECÁNICOS  (HORAS  HOMBRES,  MANO DE  OBRA  ESPECIALIZADA  Y/O   SIN   ESPECIALIZACIÓN,   TIEMPO  ESTIMADO  DE\nREPARACIÓN  POR  PIEZA  O  UNIDAD  VEHICULAR).";
+                                                primeraparte+=x;
+                                                StrCopy(palabrota,primeraparte.c_str());
+                                                p=strtok(palabrota,"XXXX");
+                                                nombre=Edit1->Text+" "+Edit2->Text;
+                                                cedula=Edit4->Text;
+                                                T=p;
+                                                T+=" "+nombre;
+                                                while(p!=NULL){
+                                                        if(i==1){
+                                                                T+=" ";
+                                                                T+=cedula;
+                                                        }else
+                                                                T+=p;
+                                                        p=strtok(NULL,"XXXX");
+                                                        i++;
+                                                }
+                                                cadena="insert into encabezado values(1,'"+encabezado+"','"+primeraparte+"','SAN CRISTÓBAL',1)";
                                                 Query1->Close();
                                                 Query1->SQL->Clear();
                                                 Query1->SQL->Add(cadena);
                                                 Query1->ExecSQL();
+
                                         }else{
                                                 MessageDlg("Seleccione el estado de la unidad",mtInformation,TMsgDlgButtons()<<mbOK,0);
                                         }
