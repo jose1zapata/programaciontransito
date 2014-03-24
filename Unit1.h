@@ -147,6 +147,7 @@ __published:	// IDE-managed Components
         void __fastcall Image5Click(TObject *Sender);
         void __fastcall Salir1Click(TObject *Sender);
         void __fastcall PeritoAvaluador1Click(TObject *Sender);
+        void __fastcall Image12Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         String reparar[30000],selectreparar[30000],idreparar[30000];

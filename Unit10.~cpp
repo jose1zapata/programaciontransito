@@ -91,20 +91,26 @@ void __fastcall TForm10::Edit5KeyPress(TObject *Sender, char &Key)
 
 void __fastcall TForm10::Image2Click(TObject *Sender)
 {
+        String cadena,aux,encabezado;
         if(!Edit1->Text.IsEmpty()){
                 if(!Edit2->Text.IsEmpty()){
                         if(!Edit4->Text.IsEmpty()){
                                 if(!Edit5->Text.IsEmpty()){
                                         if(ComboBox1->ItemIndex!=-1){
-                                                String cadena,aux;
-                                                aux=Edit5->Text+" Estado "+estados[ComboBox1->ItemIndex];
+                                                aux=Edit5->Text+" ESTADO "+estados[ComboBox1->ItemIndex];
                                                 cadena="INSERT INTO perito VALUES(1,'"+Edit1->Text+"','"+Edit2->Text+"','"+Edit3->Text+"','"+Edit4->Text+"','"+aux+"')";
                                                 Query1->Close();
                                                 Query1->SQL->Clear();
                                                 Query1->SQL->Add(cadena);
                                                 Query1->ExecSQL();
-                                                MessageDlg("insertado con éxito",mtInformation,TMsgDlgButtons()<<mbOK,0);
+                                                MessageDlg("Insertado con éxito",mtInformation,TMsgDlgButtons()<<mbOK,0);
                                                 Form10->Close();
+                                                encabezado="REPÚBLICA BOLIVARIANA DE VENEZUELA\nINSTITUTO NACIONAL DE TRANSPORTE TERRESTRE\nGERENCIA DE SERVICIOS CONEXOS\nASOCIACIÓN DE PERITOS AVALUADORES DE TRÁNSITO DE VENEZUELA\nUNIDAD "+aux;
+                                                cadena="insert into encabezado values(1,'"+encabezado+"','',1)";
+                                                Query1->Close();
+                                                Query1->SQL->Clear();
+                                                Query1->SQL->Add(cadena);
+                                                Query1->ExecSQL();
                                         }else{
                                                 MessageDlg("Seleccione el estado de la unidad",mtInformation,TMsgDlgButtons()<<mbOK,0);
                                         }

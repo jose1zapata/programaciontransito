@@ -5538,7 +5538,7 @@ object Form1: TForm1
           0100E3CEB2EBC6FA94F9A54AC252528FD44A0ACB105D83CB6B6B36B37CDDB931
           173FFFD9}
         Stretch = True
-        Visible = False
+        OnClick = Image12Click
       end
     end
     object Panel15: TPanel

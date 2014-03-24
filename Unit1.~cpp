@@ -9,6 +9,7 @@
 #include "Unit4.h"
 #include "Unit10.h"
 #include "Unit11.h"
+#include "Unit12.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -223,7 +224,57 @@ void __fastcall TForm1::Salir1Click(TObject *Sender)
 void __fastcall TForm1::PeritoAvaluador1Click(TObject *Sender)
 {
         llamalo();
-        Form11->ShowModal();        
+        Form11->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::Image12Click(TObject *Sender)
+{
+        llamalo();
+        String cadena,sitio;
+        String meses[13]={"ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"};
+        char cadenota[200],FECHA[10],*p;
+        int i=0;
+        cadena="select * from encabezado where id=1";
+        Query1->Close();
+        Query1->SQL->Clear();
+        Query1->SQL->Add(cadena);
+        Query1->Active=true;
+        cadena=Query1->FieldByName("cabecera")->Value;
+        sitio=Query1->FieldByName("sitio")->Value;
+        Form12->QRLabel11->Caption=sitio+",";
+        StrCopy(cadenota,cadena.c_str());
+        p=strtok(cadenota,"\n");
+        while(p!=NULL){
+                cadena=p;
+                Form12->QRMemo2->Lines->Add(cadena);
+                Form12->QRMemo2->Lines->Add("");
+                p=strtok(NULL,"\n");
+        }
+        i=0;
+        cadena=Label41->Caption;
+        StrCopy(FECHA,cadena.c_str());
+        p=strtok(FECHA,"-");
+        String x,y,z;
+        while(p!=NULL){
+                if(i==0){
+                        z=" DEL ";
+                        z+=p;
+                }
+                if(i==1){
+                        y=" DE ";
+                        y+=meses[atoi(p)-1];
+                }
+                if(i==2){
+                        x=" ";
+                        x+=p;
+                }
+                p=strtok(NULL,"-");
+                i++;
+        }
+        Form12->QRLabel12->Caption=x+y+z;
+        Form12->QuickRep3->Preview();
 }
 //---------------------------------------------------------------------------
 

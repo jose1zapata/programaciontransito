@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 201
-  Top = 122
+  Left = 206
+  Top = 86
   BorderStyle = bsNone
   Caption = 'Asociaci'#243'n de Peritos Avaluadores Software'
   ClientHeight = 686
@@ -5538,7 +5538,7 @@ object Form1: TForm1
           0100E3CEB2EBC6FA94F9A54AC252528FD44A0ACB105D83CB6B6B36B37CDDB931
           173FFFD9}
         Stretch = True
-        Visible = False
+        OnClick = Image12Click
       end
     end
     object Panel15: TPanel

@@ -41,8 +41,8 @@ CREATE  TABLE IF NOT EXISTS `apasoftware`.`modelo` (
   CONSTRAINT `fk_modelo_marca`
     FOREIGN KEY (`marca_id` )
     REFERENCES `apasoftware`.`marca` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = MyISAM;
 
 
@@ -91,32 +91,39 @@ CREATE  TABLE IF NOT EXISTS `apasoftware`.`vehiculo` (
   `tipo_id` INT NOT NULL ,
   `color_id` INT NOT NULL ,
   `seguro_id` INT NOT NULL ,
+  `uso` VARCHAR(45) NOT NULL ,
+  `conductores_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   CONSTRAINT `fk_vehiculo_marca1`
     FOREIGN KEY (`marca_id` )
     REFERENCES `apasoftware`.`marca` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_vehiculo_modelo1`
     FOREIGN KEY (`modelo_id` )
     REFERENCES `apasoftware`.`modelo` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_vehiculo_tipo1`
     FOREIGN KEY (`tipo_id` )
     REFERENCES `apasoftware`.`tipo` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_vehiculo_color1`
     FOREIGN KEY (`color_id` )
     REFERENCES `apasoftware`.`color` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_vehiculo_seguro1`
     FOREIGN KEY (`seguro_id` )
     REFERENCES `apasoftware`.`seguro` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_vehiculo_conductores1`
+    FOREIGN KEY (`conductores_id` )
+    REFERENCES `apasoftware`.`conductores` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = MyISAM;
 
 
@@ -143,25 +150,19 @@ CREATE  TABLE IF NOT EXISTS `apasoftware`.`accidente` (
   `fecha` DATE NOT NULL ,
   `hora` VARCHAR(45) NOT NULL ,
   `monto` FLOAT NOT NULL ,
-  `conductore_id` INT NOT NULL ,
   `vehiculo_id` INT NOT NULL ,
   `perito_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
-  CONSTRAINT `fk_accidente_conductores1`
-    FOREIGN KEY (`conductore_id` )
-    REFERENCES `apasoftware`.`conductores` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
   CONSTRAINT `fk_accidente_vehiculo1`
     FOREIGN KEY (`vehiculo_id` )
     REFERENCES `apasoftware`.`vehiculo` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_accidente_perito1`
     FOREIGN KEY (`perito_id` )
     REFERENCES `apasoftware`.`perito` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = MyISAM;
 
 
@@ -186,8 +187,8 @@ CREATE  TABLE IF NOT EXISTS `apasoftware`.`autopartes` (
   CONSTRAINT `fk_autopartes_tipoautoparte1`
     FOREIGN KEY (`tipoautoparte_id` )
     REFERENCES `apasoftware`.`tipoautoparte` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = MyISAM;
 
 
@@ -202,13 +203,13 @@ CREATE  TABLE IF NOT EXISTS `apasoftware`.`accidentesautoparte` (
   CONSTRAINT `fk_accidentesautopartes_autopartes1`
     FOREIGN KEY (`autoparte_id` )
     REFERENCES `apasoftware`.`autopartes` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_accidentesautopartes_accidente1`
     FOREIGN KEY (`accidente_id` )
     REFERENCES `apasoftware`.`accidente` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = MyISAM;
 
 
@@ -217,6 +218,7 @@ ENGINE = MyISAM;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `apasoftware`.`avaluo` (
   `id` VARCHAR(45) NOT NULL ,
+  `expediente` VARCHAR(45) NULL ,
   `lugarinspeccion` TEXT NOT NULL ,
   `fecha` DATE NOT NULL ,
   `accidente_id` INT NOT NULL ,
@@ -224,8 +226,26 @@ CREATE  TABLE IF NOT EXISTS `apasoftware`.`avaluo` (
   CONSTRAINT `fk_avaluo_accidente1`
     FOREIGN KEY (`accidente_id` )
     REFERENCES `apasoftware`.`accidente` (`id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = MyISAM;
+
+
+-- -----------------------------------------------------
+-- Table `apasoftware`.`encabezado`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `apasoftware`.`encabezado` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `cabecera` TEXT NOT NULL ,
+  `primera parte` TEXT NOT NULL ,
+  `sitio` TEXT NOT NULL ,
+  `perito_id` INT NOT NULL ,
+  PRIMARY KEY (`id`) ,
+  CONSTRAINT `fk_encabezado_perito1`
+    FOREIGN KEY (`perito_id` )
+    REFERENCES `apasoftware`.`perito` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = MyISAM;
 
 USE `apasoftware` ;
@@ -241,7 +261,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `apasoftware`;
 INSERT INTO `apasoftware`.`tipoautoparte` (`id`, `nombre`) VALUES (1, 'Cambiar');
-INSERT INTO `apasoftware`.`tipoautoparte` (`id`, `nombre`) VALUES (2, 'Reparar');
+INSERT INTO `apasoftware`.`tipoautoparte` (`id`, `nombre`) VALUES (2, 'reparar');
 
 COMMIT;
 
