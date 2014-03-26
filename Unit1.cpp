@@ -232,9 +232,12 @@ void __fastcall TForm1::PeritoAvaluador1Click(TObject *Sender)
 void __fastcall TForm1::Image12Click(TObject *Sender)
 {
         llamalo();
-        String cadena,sitio;
+        String cadena,sitio,primera;
         String meses[13]={"ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"};
-        char cadenota[200],FECHA[10],*p;
+        char cadenota[200],FECHA[10],*p,primero[10000];
+        for(int i=0;i<10000;i++){
+                primero[i]=NULL;
+        }
         int i=0;
         cadena="select * from encabezado where id=1";
         Query1->Close();
@@ -243,6 +246,7 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
         Query1->Active=true;
         cadena=Query1->FieldByName("cabecera")->Value;
         sitio=Query1->FieldByName("sitio")->Value;
+        primera=Query1->FieldByName("primeraparte")->Value;
         Form12->QRLabel11->Caption=sitio+",";
         StrCopy(cadenota,cadena.c_str());
         p=strtok(cadenota,"\n");
@@ -271,6 +275,21 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                 }
                 p=strtok(NULL,"-");
                 i++;
+        }
+        StrCopy(primero,primera.c_str());
+        p=strtok(primero,"\n");
+        while(p!=NULL){
+                cadena=p;
+                if(cadena=="METODOLOGÍA APLICADA"){
+                        Form12->QRMemo1->Lines->Add("");
+                        Form12->QRLabel3->Caption=cadena;
+                        Form12->QRLabel3->Font->Style=TFontStyles() << fsBold << fsUnderline;
+                        Form12->QRLabel3->Left=2;
+                        Form12->QRLabel3->Top=113;
+                        Form12->QRMemo1->Lines->Add("");
+                }else
+                Form12->QRMemo1->Lines->Add(cadena);
+                p=strtok(NULL,"\n");
         }
         Form12->QRLabel9->Caption=Label45->Caption;
         Form12->QRLabel10->Caption=Label43->Caption;

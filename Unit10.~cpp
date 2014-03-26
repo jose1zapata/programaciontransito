@@ -97,11 +97,12 @@ void __fastcall TForm10::Image2Click(TObject *Sender)
                 if(!Edit2->Text.IsEmpty()){
                         if(!Edit4->Text.IsEmpty()){
                                 if(!Edit5->Text.IsEmpty()){
+                                   if(!Edit6->Text.IsEmpty()){
                                         if(ComboBox1->ItemIndex!=-1){
-                                                String nombre,cedula;
+                                                String nombre,cedula,codigo;
                                                 int i=0;
                                                 aux=Edit5->Text+" ESTADO "+estados[ComboBox1->ItemIndex];
-                                                cadena="INSERT INTO perito VALUES(1,'"+Edit1->Text+"','"+Edit2->Text+"','"+Edit3->Text+"','"+Edit4->Text+"','6030','"+aux+"')";
+                                                cadena="INSERT INTO perito VALUES(1,'"+Edit1->Text+"','"+Edit2->Text+"','"+Edit3->Text+"','"+Edit4->Text+"','"+aux+"','"+Edit6->Text+"')";
                                                 Query1->Close();
                                                 Query1->SQL->Clear();
                                                 Query1->SQL->Add(cadena);
@@ -116,15 +117,28 @@ void __fastcall TForm10::Image2Click(TObject *Sender)
                                                 p=strtok(palabrota,"XXXX");
                                                 nombre=Edit1->Text+" "+Edit2->Text;
                                                 cedula=Edit4->Text;
+                                                codigo=Edit6->Text;
                                                 T=p;
                                                 T+=" "+nombre;
                                                 while(p!=NULL){
-                                                        if(i==1){
+                                                        if(i==1){//cedula
+                                                                T+=p;
                                                                 T+=" ";
                                                                 T+=cedula;
-                                                        }else
+                                                        }
+                                                        if(i==2){
                                                                 T+=p;
+                                                                T+=" ";
+                                                                T+=codigo;
+                                                        }
+                                                        if(i>2){
+
+                                                                T+=p;
+
+                                                        }
                                                         p=strtok(NULL,"XXXX");
+                                                        if(p!=NULL&&i>2)
+                                                                T+="X";
                                                         i++;
                                                 }
                                                 cadena="insert into encabezado values(1,'"+encabezado+"','"+primeraparte+"','SAN CRISTÓBAL',1)";
@@ -136,6 +150,9 @@ void __fastcall TForm10::Image2Click(TObject *Sender)
                                         }else{
                                                 MessageDlg("Seleccione el estado de la unidad",mtInformation,TMsgDlgButtons()<<mbOK,0);
                                         }
+                                   }else{
+                                        MessageDlg("Ingrese codigo del perito",mtInformation,TMsgDlgButtons()<<mbOK,0);
+                                   }
                                 }else{
                                         MessageDlg("Ingrese unidad",mtInformation,TMsgDlgButtons()<<mbOK,0);
                                 }
@@ -154,6 +171,12 @@ void __fastcall TForm10::Image2Click(TObject *Sender)
 void __fastcall TForm10::Image3Click(TObject *Sender)
 {
         MessageDlg("Todos los campos se llenan obligatoriamente, menos, el campo profesión que es opcional",mtInformation,TMsgDlgButtons()<<mbOK,0);        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm10::Edit6KeyPress(TObject *Sender, char &Key)
+{
+        Edit4KeyPress(Sender,Key);        
 }
 //---------------------------------------------------------------------------
 

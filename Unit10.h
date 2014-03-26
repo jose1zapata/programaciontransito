@@ -34,6 +34,8 @@ __published:	// IDE-managed Components
         TComboBox *ComboBox1;
         TImage *Image4;
         TQuery *Query1;
+        TLabel *Label6;
+        TEdit *Edit6;
         void __fastcall Image4Click(TObject *Sender);
         void __fastcall Edit1KeyPress(TObject *Sender, char &Key);
         void __fastcall Edit2KeyPress(TObject *Sender, char &Key);
@@ -42,6 +44,7 @@ __published:	// IDE-managed Components
         void __fastcall Edit5KeyPress(TObject *Sender, char &Key);
         void __fastcall Image2Click(TObject *Sender);
         void __fastcall Image3Click(TObject *Sender);
+        void __fastcall Edit6KeyPress(TObject *Sender, char &Key);
 private:	// User declarations
 public:		// User declarations
         

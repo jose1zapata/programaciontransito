@@ -3,7 +3,7 @@ object Form10: TForm10
   Top = 181
   BorderStyle = bsNone
   Caption = 'Form10'
-  ClientHeight = 382
+  ClientHeight = 446
   ClientWidth = 296
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -2854,7 +2854,7 @@ object Form10: TForm10
     Left = 0
     Top = 105
     Width = 296
-    Height = 277
+    Height = 341
     Align = alClient
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -2897,6 +2897,13 @@ object Form10: TForm10
       Width = 61
       Height = 18
       Caption = 'Unidad'
+    end
+    object Label6: TLabel
+      Left = 8
+      Top = 264
+      Width = 60
+      Height = 18
+      Caption = 'Codigo'
     end
     object Edit1: TEdit
       Left = 5
@@ -2946,6 +2953,14 @@ object Form10: TForm10
       ItemHeight = 18
       TabOrder = 5
       Text = 'Estado'
+    end
+    object Edit6: TEdit
+      Left = 8
+      Top = 288
+      Width = 121
+      Height = 26
+      TabOrder = 6
+      OnKeyPress = Edit6KeyPress
     end
   end
   object Query1: TQuery
