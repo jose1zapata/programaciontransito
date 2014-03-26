@@ -113,7 +113,7 @@ void __fastcall TForm3::Image2Click(TObject *Sender)
                                                                 if(!Memo1->Text.IsEmpty()){
                                                                         if(!Edit3->Text.IsEmpty()){
                                                                                 if(ComboBox6->ItemIndex!=-1){
-                                                                                        if(ComboBox7->ItemIndex!=1){
+                                                                                        if(ComboBox7->ItemIndex!=-1){
                                                                                                 if(!Edit5->Text.IsEmpty()&&Edit5->Text.Length()){
                                                                                                         if(!Memo2->Text.IsEmpty()){
                                                                                                                 Form1->activado=3;

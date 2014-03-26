@@ -69,7 +69,6 @@ __published:	// IDE-managed Components
         TQRLabel *QRLabel46;
         TQRLabel *QRLabel47;
         TQRLabel *QRLabel48;
-        TQRLabel *QRLabel49;
         TQRMemo *QRMemo3;
 private:	// User declarations
 public:		// User declarations

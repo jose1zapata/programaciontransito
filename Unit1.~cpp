@@ -235,6 +235,7 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
         String cadena,sitio,primera;
         String meses[13]={"ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"};
         char cadenota[200],FECHA[10],*p,primero[10000];
+
         for(int i=0;i<10000;i++){
                 primero[i]=NULL;
                 if(i<200)
@@ -296,16 +297,26 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                 p=strtok(NULL,"\n");
         }
         cadena=NULL;
-        for (int i=0;i<totalselectcambiar;i++)
+        int ban=0,I=0;
+        cadena="";
+        cadena="LAS PIEZAS QUE SE DESCRIBEN ESTAN DAÑADAS Y AMERITAN CAMBIO:";
+        Form12->QRMemo3->Lines->Add(cadena);
+        while (1)
         {
-                if(i%5==0){
-
-                }else{
-                        cadena+=selectcambiar[i]+",";
+                cadena="";
+                while(I<totalselectreparar){
+                        cadena+=reparar[atoi(selectreparar[I].c_str())]+", ";
+                        I++;
+                        if(I%5==0)
+                                break;
                 }
-
+                Form12->QRMemo3->Lines->Add(cadena);
+                cadena="";
+                if(I==totalselectreparar){
+                        break;
+                }
         }
-
+//      Form12->QRMemo3->Lines->Add();
         Form12->QRLabel29->Caption=Label29->Caption;
         Form12->QRLabel30->Caption=Label5->Caption;
         Form12->QRLabel31->Caption=Label7->Caption;

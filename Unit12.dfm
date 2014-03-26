@@ -340,6 +340,7 @@ object Form12: TForm12
         AlignToBand = False
         AutoSize = True
         AutoStretch = False
+        Caption = 'QRLabel3'
         Color = clWhite
         Transparent = False
         WordWrap = True
@@ -399,7 +400,7 @@ object Form12: TForm12
       Left = 38
       Top = 425
       Width = 740
-      Height = 448
+      Height = 520
       Frame.Color = clBlack
       Frame.DrawTop = False
       Frame.DrawBottom = False
@@ -416,7 +417,7 @@ object Form12: TForm12
       ForceNewPage = False
       ParentFont = False
       Size.Values = (
-        1185.33333333333
+        1375.83333333333
         1957.91666666667)
       BandType = rbSummary
       object QRLabel2: TQRLabel
@@ -1541,51 +1542,20 @@ object Form12: TForm12
         WordWrap = True
         FontSize = 9
       end
-      object QRLabel49: TQRLabel
-        Left = 6
-        Top = 248
-        Width = 426
-        Height = 17
-        Frame.Color = clBlack
-        Frame.DrawTop = False
-        Frame.DrawBottom = False
-        Frame.DrawLeft = False
-        Frame.DrawRight = False
-        Size.Values = (
-          44.9791666666667
-          15.875
-          656.166666666667
-          1127.125)
-        Alignment = taLeftJustify
-        AlignToBand = False
-        AutoSize = True
-        AutoStretch = False
-        Caption = 'LAS PIEZAS QUE SE DESCRIBEN ESTAN DA'#209'ADAS Y AMERITAN CAMBIO:'
-        Color = clWhite
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Franklin Gothic Book'
-        Font.Style = [fsBold]
-        ParentFont = False
-        Transparent = False
-        WordWrap = True
-        FontSize = 9
-      end
       object QRMemo3: TQRMemo
         Left = 6
-        Top = 267
+        Top = 248
         Width = 55
-        Height = 17
+        Height = 241
         Frame.Color = clBlack
         Frame.DrawTop = False
         Frame.DrawBottom = False
         Frame.DrawLeft = False
         Frame.DrawRight = False
         Size.Values = (
-          44.9791666666667
+          637.645833333333
           15.875
-          706.4375
+          656.166666666667
           145.520833333333)
         Alignment = taLeftJustify
         AlignToBand = False
