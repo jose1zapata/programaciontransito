@@ -283,10 +283,9 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                 if(cadena=="METODOLOGÍA APLICADA"){
                         Form12->QRMemo1->Lines->Add("");
                         Form12->QRLabel3->Caption=cadena;
-                        Form12->QRLabel3->Font->Style=TFontStyles() << fsBold<<fsUnderline;
+                        Form12->QRLabel3->Font->Style=TFontStyles() << fsBold << fsUnderline;
                         Form12->QRLabel3->Left=2;
                         Form12->QRLabel3->Top=113;
-                        Form12->QRMemo1->Lines->Add("");
                         Form12->QRMemo1->Lines->Add("");
                 }else
                 Form12->QRMemo1->Lines->Add(cadena);

@@ -768,7 +768,7 @@ object Form1: TForm1
         Font.Color = clWindowText
         Font.Height = -15
         Font.Name = 'Verdana'
-        Font.Style = []
+        Font.Style = [fsUnderline, fsStrikeOut]
         ItemHeight = 18
         ParentFont = False
         TabOrder = 1
