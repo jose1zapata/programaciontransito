@@ -3,7 +3,7 @@ object Form12: TForm12
   Top = 121
   Width = 856
   Height = 500
-  VertScrollBar.Position = 208
+  VertScrollBar.Position = 510
   Caption = 'Form12'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,7 +17,7 @@ object Form12: TForm12
   TextHeight = 13
   object QuickRep3: TQuickRep
     Left = 16
-    Top = -208
+    Top = -510
     Width = 816
     Height = 1344
     Frame.Color = clBlack
@@ -211,7 +211,7 @@ object Form12: TForm12
         FontSize = 8
       end
       object QRLabel12: TQRLabel
-        Left = 546
+        Left = 522
         Top = 31
         Width = 53
         Height = 33
@@ -222,7 +222,7 @@ object Form12: TForm12
         Frame.DrawRight = False
         Size.Values = (
           87.3125
-          1444.625
+          1381.125
           82.0208333333333
           140.229166666667)
         Alignment = taLeftJustify
@@ -399,7 +399,7 @@ object Form12: TForm12
       Left = 38
       Top = 425
       Width = 740
-      Height = 264
+      Height = 448
       Frame.Color = clBlack
       Frame.DrawTop = False
       Frame.DrawBottom = False
@@ -416,7 +416,7 @@ object Form12: TForm12
       ForceNewPage = False
       ParentFont = False
       Size.Values = (
-        698.5
+        1185.33333333333
         1957.91666666667)
       BandType = rbSummary
       object QRLabel2: TQRLabel
@@ -576,7 +576,7 @@ object Form12: TForm12
       end
       object QRLabel14: TQRLabel
         Left = 421
-        Top = 59
+        Top = 56
         Width = 164
         Height = 17
         Frame.Color = clBlack
@@ -587,7 +587,7 @@ object Form12: TForm12
         Size.Values = (
           44.9791666666667
           1113.89583333333
-          156.104166666667
+          148.166666666667
           433.916666666667)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1141,7 +1141,7 @@ object Form12: TForm12
       end
       object QRLabel33: TQRLabel
         Left = 590
-        Top = 59
+        Top = 56
         Width = 57
         Height = 17
         Frame.Color = clBlack
@@ -1152,7 +1152,7 @@ object Form12: TForm12
         Size.Values = (
           44.9791666666667
           1561.04166666667
-          156.104166666667
+          148.166666666667
           150.8125)
         Alignment = taLeftJustify
         AlignToBand = False
@@ -1309,6 +1309,288 @@ object Form12: TForm12
         AutoSize = True
         AutoStretch = False
         Caption = 'QRLabel39'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 9
+      end
+      object QRLabel40: TQRLabel
+        Left = 320
+        Top = 135
+        Width = 57
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          846.666666666667
+          357.1875
+          150.8125)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'QRLabel40'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 9
+      end
+      object QRLabel41: TQRLabel
+        Left = 592
+        Top = 136
+        Width = 57
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          1566.33333333333
+          359.833333333333
+          150.8125)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'QRLabel41'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 9
+      end
+      object QRLabel42: TQRLabel
+        Left = 144
+        Top = 152
+        Width = 57
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          381
+          402.166666666667
+          150.8125)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'QRLabel42'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 9
+      end
+      object QRLabel43: TQRLabel
+        Left = 480
+        Top = 152
+        Width = 57
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          1270
+          402.166666666667
+          150.8125)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'QRLabel43'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 9
+      end
+      object QRLabel44: TQRLabel
+        Left = 176
+        Top = 171
+        Width = 57
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          465.666666666667
+          452.4375
+          150.8125)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'QRLabel44'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 9
+      end
+      object QRLabel45: TQRLabel
+        Left = 528
+        Top = 171
+        Width = 57
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          1397
+          452.4375
+          150.8125)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'QRLabel45'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 9
+      end
+      object QRLabel46: TQRLabel
+        Left = 208
+        Top = 192
+        Width = 57
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          550.333333333333
+          508
+          150.8125)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'QRLabel46'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 9
+      end
+      object QRLabel47: TQRLabel
+        Left = 467
+        Top = 208
+        Width = 57
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          1235.60416666667
+          550.333333333333
+          150.8125)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'QRLabel47'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 9
+      end
+      object QRLabel48: TQRLabel
+        Left = 6
+        Top = 228
+        Width = 436
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          15.875
+          603.25
+          1153.58333333333)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 
+          ' Y POR CUANTO EL VEH'#205'CULO EN REFERENCIA HA SUFRIDO LOS SIGUIENTE' +
+          'S DA'#209'OS:'
+        Color = clWhite
+        Transparent = False
+        WordWrap = True
+        FontSize = 9
+      end
+      object QRLabel49: TQRLabel
+        Left = 6
+        Top = 248
+        Width = 426
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          15.875
+          656.166666666667
+          1127.125)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
+        Caption = 'LAS PIEZAS QUE SE DESCRIBEN ESTAN DA'#209'ADAS Y AMERITAN CAMBIO:'
+        Color = clWhite
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Franklin Gothic Book'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+        WordWrap = True
+        FontSize = 9
+      end
+      object QRMemo3: TQRMemo
+        Left = 6
+        Top = 267
+        Width = 55
+        Height = 17
+        Frame.Color = clBlack
+        Frame.DrawTop = False
+        Frame.DrawBottom = False
+        Frame.DrawLeft = False
+        Frame.DrawRight = False
+        Size.Values = (
+          44.9791666666667
+          15.875
+          706.4375
+          145.520833333333)
+        Alignment = taLeftJustify
+        AlignToBand = False
+        AutoSize = True
+        AutoStretch = False
         Color = clWhite
         Transparent = False
         WordWrap = True

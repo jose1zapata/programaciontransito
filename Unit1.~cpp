@@ -237,6 +237,10 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
         char cadenota[200],FECHA[10],*p,primero[10000];
         for(int i=0;i<10000;i++){
                 primero[i]=NULL;
+                if(i<200)
+                cadenota[i]=NULL;
+                if(i<10)
+                FECHA[i]=NULL;
         }
         int i=0;
         cadena="select * from encabezado where id=1";
@@ -291,10 +295,42 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                 Form12->QRMemo1->Lines->Add(cadena);
                 p=strtok(NULL,"\n");
         }
+        cadena=NULL;
+        for (int i=0;i<totalselectcambiar;i++)
+        {
+                if(i%5==0){
+
+                }else{
+                        cadena+=selectcambiar[i]+",";
+                }
+
+        }
+
+        Form12->QRLabel29->Caption=Label29->Caption;
+        Form12->QRLabel30->Caption=Label5->Caption;
+        Form12->QRLabel31->Caption=Label7->Caption;
+        Form12->QRLabel32->Caption=Label9->Caption;
+        Form12->QRLabel33->Caption=Label11->Caption;
+        Form12->QRLabel34->Caption=Label15->Caption;
+        Form12->QRLabel35->Caption=Label13->Caption;
+        Form12->QRLabel36->Caption=Label19->Caption;
+        Form12->QRLabel37->Caption=Label21->Caption;
+        Form12->QRLabel38->Caption=Label25->Caption;
+        Form12->QRLabel39->Caption=Label23->Caption;
+        Form12->QRLabel40->Caption=Label27->Caption;
+        Form12->QRLabel41->Caption=Label59->Caption;
+        Form12->QRLabel42->Caption=Label31->Caption;
+        Form12->QRLabel43->Caption=Label33->Caption;
+        Form12->QRLabel44->Caption=Label35->Caption;
+        Form12->QRLabel45->Caption=Label37->Caption;
+        Form12->QRLabel46->Caption=Label49->Caption;
+        Form12->QRLabel47->Caption=Label53->Caption;
+
         Form12->QRLabel9->Caption=Label45->Caption;
         Form12->QRLabel10->Caption=Label43->Caption;
         Form12->QRLabel12->Caption=x+y+z;
         Form12->QuickRep3->Preview();
 }
 //---------------------------------------------------------------------------
+
 

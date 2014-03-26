@@ -55,6 +55,19 @@ __published:	// IDE-managed Components
         TQRLabel *QRLabel32;
         TQRLabel *QRLabel33;
         TQRLabel *QRLabel34;
+        TQRLabel *QRLabel35;
+        TQRLabel *QRLabel36;
+        TQRLabel *QRLabel37;
+        TQRLabel *QRLabel38;
+        TQRLabel *QRLabel39;
+        TQRLabel *QRLabel40;
+        TQRLabel *QRLabel41;
+        TQRLabel *QRLabel42;
+        TQRLabel *QRLabel43;
+        TQRLabel *QRLabel44;
+        TQRLabel *QRLabel45;
+        TQRLabel *QRLabel46;
+        TQRLabel *QRLabel47;
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm12(TComponent* Owner);
