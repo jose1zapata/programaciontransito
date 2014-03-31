@@ -1545,7 +1545,7 @@ object Form12: TForm12
       object QRMemo3: TQRMemo
         Left = 6
         Top = 240
-        Width = 55
+        Width = 51
         Height = 361
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -1556,15 +1556,21 @@ object Form12: TForm12
           955.145833333333
           15.875
           635
-          145.520833333333)
+          134.9375)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
         AutoStretch = False
         Color = clWhite
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Franklin Gothic Book'
+        Font.Style = []
+        ParentFont = False
         Transparent = False
         WordWrap = True
-        FontSize = 9
+        FontSize = 8
       end
     end
   end

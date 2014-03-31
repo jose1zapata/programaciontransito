@@ -15,6 +15,7 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm1 *Form1;
+bool press=0;
 
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
@@ -217,7 +218,7 @@ void __fastcall TForm1::Image5Click(TObject *Sender)
 
 void __fastcall TForm1::Salir1Click(TObject *Sender)
 {
-        Image10Click(Sender);        
+        Image10Click(Sender);
 }
 //---------------------------------------------------------------------------
 
@@ -237,6 +238,8 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
         String meses[13]={"ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"};
         char cadenota[200],FECHA[10],*p,primero[10000];
 
+        if(press==0){
+        press=0;
         for(int i=0;i<10000;i++){
                 primero[i]=NULL;
                 if(i<200)
@@ -297,8 +300,9 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                 Form12->QRMemo1->Lines->Add(cadena);
                 p=strtok(NULL,"\n");
         }
-        cadena=NULL;
         int I=0;
+        if(totalselectreparar!=0){
+        cadena=NULL;
         cadena="";
         cadena="LAS PIEZAS QUE SE DESCRIBEN ESTAN DAÑADAS Y AMERITAN CAMBIO:";
         Form12->QRMemo3->Lines->Add(cadena);
@@ -308,7 +312,7 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                 while(I<totalselectreparar){
                         cadena+=reparar[atoi(selectreparar[I].c_str())]+", ";
                         I++;
-                        if(I%5==0)
+                        if(I%4==0)
                                 break;
                 }
                 Form12->QRMemo3->Lines->Add(cadena);
@@ -317,6 +321,9 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                         break;
                 }
         }
+        }
+        if(totalselectcambiar!=0){
+        if(totalselectcambiar!=0){
         I=0;
         cadena="";
         cadena="ESTA OTRA PIEZA A MENCIONAR POSEE DEFORMACION REPARABLE:";
@@ -333,7 +340,7 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                                 }
                         }
                         I++;
-                        if(I%5==0)
+                        if(I%4==0)
                                 break;
                 }
                 Form12->QRMemo3->Lines->Add(cadena);
@@ -341,6 +348,8 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                 if(I==totalselectcambiar){
                         break;
                 }
+        }
+        }
         }
 //      Form12->QRMemo3->Lines->Add();
         Form12->QRMemo3->Lines->Add("");
@@ -368,7 +377,9 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
         Form12->QRLabel9->Caption=Label45->Caption;
         Form12->QRLabel10->Caption=Label43->Caption;
         Form12->QRLabel12->Caption=x+y+z;
+        }
         Form12->QuickRep3->Preview();
+
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::returntonumber(String cadena){
@@ -790,7 +801,7 @@ void __fastcall TForm1::returntonumber(String cadena){
         Form12->QRMemo3->Lines->Add("");
         Form12->QRMemo3->Lines->Add("");
         Form12->QRMemo3->Lines->Add("                                                                 ___________________________________");
-        Form12->QRMemo3->Lines->Add("                                                                            PERTIO AVALUADOR");
+        Form12->QRMemo3->Lines->Add("                                                                           PERTIO AVALUADOR");
 }
 
 void __fastcall TForm1::VerReporte1Click(TObject *Sender)
@@ -798,4 +809,5 @@ void __fastcall TForm1::VerReporte1Click(TObject *Sender)
         Form13->QuickRep1->Preview();
 }
 //---------------------------------------------------------------------------
+
 

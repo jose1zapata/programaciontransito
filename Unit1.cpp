@@ -239,7 +239,7 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
         char cadenota[200],FECHA[10],*p,primero[10000];
 
         if(press==0){
-        press=1;
+        press=0;
         for(int i=0;i<10000;i++){
                 primero[i]=NULL;
                 if(i<200)
@@ -300,8 +300,9 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                 Form12->QRMemo1->Lines->Add(cadena);
                 p=strtok(NULL,"\n");
         }
-        cadena=NULL;
         int I=0;
+        if(totalselectreparar!=0){
+        cadena=NULL;
         cadena="";
         cadena="LAS PIEZAS QUE SE DESCRIBEN ESTAN DAÑADAS Y AMERITAN CAMBIO:";
         Form12->QRMemo3->Lines->Add(cadena);
@@ -311,7 +312,7 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                 while(I<totalselectreparar){
                         cadena+=reparar[atoi(selectreparar[I].c_str())]+", ";
                         I++;
-                        if(I%5==0)
+                        if(I%4==0)
                                 break;
                 }
                 Form12->QRMemo3->Lines->Add(cadena);
@@ -320,6 +321,9 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                         break;
                 }
         }
+        }
+        if(totalselectcambiar!=0){
+        if(totalselectcambiar!=0){
         I=0;
         cadena="";
         cadena="ESTA OTRA PIEZA A MENCIONAR POSEE DEFORMACION REPARABLE:";
@@ -336,7 +340,7 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                                 }
                         }
                         I++;
-                        if(I%5==0)
+                        if(I%4==0)
                                 break;
                 }
                 Form12->QRMemo3->Lines->Add(cadena);
@@ -344,6 +348,8 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                 if(I==totalselectcambiar){
                         break;
                 }
+        }
+        }
         }
 //      Form12->QRMemo3->Lines->Add();
         Form12->QRMemo3->Lines->Add("");
@@ -795,7 +801,7 @@ void __fastcall TForm1::returntonumber(String cadena){
         Form12->QRMemo3->Lines->Add("");
         Form12->QRMemo3->Lines->Add("");
         Form12->QRMemo3->Lines->Add("                                                                 ___________________________________");
-        Form12->QRMemo3->Lines->Add("                                                                            PERTIO AVALUADOR");
+        Form12->QRMemo3->Lines->Add("                                                                           PERTIO AVALUADOR");
 }
 
 void __fastcall TForm1::VerReporte1Click(TObject *Sender)
@@ -803,4 +809,5 @@ void __fastcall TForm1::VerReporte1Click(TObject *Sender)
         Form13->QuickRep1->Preview();
 }
 //---------------------------------------------------------------------------
+
 

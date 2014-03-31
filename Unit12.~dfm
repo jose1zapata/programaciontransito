@@ -1546,14 +1546,14 @@ object Form12: TForm12
         Left = 6
         Top = 240
         Width = 55
-        Height = 425
+        Height = 361
         Frame.Color = clBlack
         Frame.DrawTop = False
         Frame.DrawBottom = False
         Frame.DrawLeft = False
         Frame.DrawRight = False
         Size.Values = (
-          1124.47916666667
+          955.145833333333
           15.875
           635
           145.520833333333)

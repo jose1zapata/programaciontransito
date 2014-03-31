@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 206
-  Top = 86
+  Left = 193
+  Top = 46
   BorderStyle = bsNone
   Caption = 'Asociaci'#243'n de Peritos Avaluadores Software'
   ClientHeight = 686
@@ -5538,6 +5538,7 @@ object Form1: TForm1
           0100E3CEB2EBC6FA94F9A54AC252528FD44A0ACB105D83CB6B6B36B37CDDB931
           173FFFD9}
         Stretch = True
+        Visible = False
         OnClick = Image12Click
       end
     end
@@ -5563,7 +5564,7 @@ object Form1: TForm1
         Caption = 'Nombre Conductor:'
       end
       object Label5: TLabel
-        Left = 134
+        Left = 138
         Top = 27
         Width = 4
         Height = 13
@@ -5746,7 +5747,7 @@ object Form1: TForm1
         Caption = 'Modelo:'
       end
       object Label21: TLabel
-        Left = 56
+        Left = 60
         Top = 46
         Width = 4
         Height = 13
@@ -5860,7 +5861,7 @@ object Form1: TForm1
         Caption = 'Serial Motor:'
       end
       object Label33: TLabel
-        Left = 288
+        Left = 292
         Top = 63
         Width = 4
         Height = 13
@@ -5879,7 +5880,7 @@ object Form1: TForm1
         Caption = 'Seguro:'
       end
       object Label35: TLabel
-        Left = 256
+        Left = 260
         Top = 79
         Width = 4
         Height = 13
@@ -5898,7 +5899,7 @@ object Form1: TForm1
         Caption = 'N'#176' y tipo de Poliza:'
       end
       object Label37: TLabel
-        Left = 327
+        Left = 331
         Top = 96
         Width = 4
         Height = 13
@@ -5917,7 +5918,7 @@ object Form1: TForm1
         Caption = 'Codigo Registro Vehiculo:'
       end
       object Label39: TLabel
-        Left = 176
+        Left = 180
         Top = 119
         Width = 4
         Height = 13
@@ -5986,7 +5987,7 @@ object Form1: TForm1
         Caption = 'Fecha Acta avaluo:'
       end
       object Label41: TLabel
-        Left = 130
+        Left = 134
         Top = 29
         Width = 4
         Height = 13
@@ -6045,7 +6046,7 @@ object Form1: TForm1
       object Label47: TLabel
         Left = 208
         Top = 138
-        Width = 65
+        Width = 4
         Height = 13
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -6100,7 +6101,7 @@ object Form1: TForm1
         Caption = 'Hora aprox del accidente:'
       end
       object Label53: TLabel
-        Left = 178
+        Left = 182
         Top = 76
         Width = 4
         Height = 13
@@ -6119,7 +6120,7 @@ object Form1: TForm1
         Caption = 'Monto Aproximado en da'#241'os:'
       end
       object Label55: TLabel
-        Left = 199
+        Left = 203
         Top = 91
         Width = 4
         Height = 13

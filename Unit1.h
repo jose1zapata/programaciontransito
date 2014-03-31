@@ -154,8 +154,8 @@ private:	// User declarations
 public:		// User declarations
         String reparar[30000],selectreparar[30000],idreparar[30000];
         int totalreparar,totalselectreparar;
-        String cambiar[30000],selectcambiar[30000],idcambiar[30000],numerocadena;
-        int activado;
+        String cambiar[30000],selectcambiar[30000],idcambiar[30000],numerocadena,valores[30000];
+        int activado,totalconsulta;
         int totalcambiar,totalselectcambiar;
         __fastcall TForm1(TComponent* Owner);
 void __fastcall rellenar();
