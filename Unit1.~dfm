@@ -6045,7 +6045,7 @@ object Form1: TForm1
       object Label47: TLabel
         Left = 208
         Top = 138
-        Width = 4
+        Width = 65
         Height = 13
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -6062,7 +6062,7 @@ object Form1: TForm1
         Caption = 'Direcci'#243'n del accidente:'
       end
       object Label49: TLabel
-        Left = 164
+        Left = 168
         Top = 123
         Width = 4
         Height = 13
@@ -8834,6 +8834,10 @@ object Form1: TForm1
         Caption = 'Buscar Acta'
         ShortCut = 16450
         OnClick = PeritoAvaluador1Click
+      end
+      object VerReporte1: TMenuItem
+        Caption = 'Ver Reporte'
+        OnClick = VerReporte1Click
       end
       object Salir1: TMenuItem
         Caption = 'Salir'

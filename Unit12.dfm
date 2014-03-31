@@ -3,7 +3,7 @@ object Form12: TForm12
   Top = 121
   Width = 856
   Height = 500
-  VertScrollBar.Position = 510
+  VertScrollBar.Position = 711
   Caption = 'Form12'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,7 +17,7 @@ object Form12: TForm12
   TextHeight = 13
   object QuickRep3: TQuickRep
     Left = 16
-    Top = -510
+    Top = -711
     Width = 816
     Height = 1344
     Frame.Color = clBlack
@@ -400,7 +400,7 @@ object Form12: TForm12
       Left = 38
       Top = 425
       Width = 740
-      Height = 520
+      Height = 680
       Frame.Color = clBlack
       Frame.DrawTop = False
       Frame.DrawBottom = False
@@ -417,7 +417,7 @@ object Form12: TForm12
       ForceNewPage = False
       ParentFont = False
       Size.Values = (
-        1375.83333333333
+        1799.16666666667
         1957.91666666667)
       BandType = rbSummary
       object QRLabel2: TQRLabel
@@ -1544,18 +1544,18 @@ object Form12: TForm12
       end
       object QRMemo3: TQRMemo
         Left = 6
-        Top = 248
+        Top = 240
         Width = 55
-        Height = 241
+        Height = 361
         Frame.Color = clBlack
         Frame.DrawTop = False
         Frame.DrawBottom = False
         Frame.DrawLeft = False
         Frame.DrawRight = False
         Size.Values = (
-          637.645833333333
+          955.145833333333
           15.875
-          656.166666666667
+          635
           145.520833333333)
         Alignment = taLeftJustify
         AlignToBand = False

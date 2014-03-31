@@ -10,6 +10,7 @@
 #include "Unit10.h"
 #include "Unit11.h"
 #include "Unit12.h"
+#include "Unit13.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -297,7 +298,7 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                 p=strtok(NULL,"\n");
         }
         cadena=NULL;
-        int ban=0,I=0;
+        int I=0;
         cadena="";
         cadena="LAS PIEZAS QUE SE DESCRIBEN ESTAN DAÑADAS Y AMERITAN CAMBIO:";
         Form12->QRMemo3->Lines->Add(cadena);
@@ -316,7 +317,33 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
                         break;
                 }
         }
+        I=0;
+        cadena="";
+        cadena="ESTA OTRA PIEZA A MENCIONAR POSEE DEFORMACION REPARABLE:";
+        Form12->QRMemo3->Lines->Add(cadena);
+        while (1)
+        {
+                cadena="";
+                while(I<totalselectcambiar){
+                        for (int j=0;j<totalcambiar;j++)
+                        {
+                                if(selectcambiar[I]==idcambiar[j]){
+                                        cadena+=cambiar[j]+", ";
+                                        break;
+                                }
+                        }
+                        I++;
+                        if(I%5==0)
+                                break;
+                }
+                Form12->QRMemo3->Lines->Add(cadena);
+                cadena="";
+                if(I==totalselectcambiar){
+                        break;
+                }
+        }
 //      Form12->QRMemo3->Lines->Add();
+        Form12->QRMemo3->Lines->Add("");
         Form12->QRLabel29->Caption=Label29->Caption;
         Form12->QRLabel30->Caption=Label5->Caption;
         Form12->QRLabel31->Caption=Label7->Caption;
@@ -334,14 +361,441 @@ void __fastcall TForm1::Image12Click(TObject *Sender)
         Form12->QRLabel43->Caption=Label33->Caption;
         Form12->QRLabel44->Caption=Label35->Caption;
         Form12->QRLabel45->Caption=Label37->Caption;
-        Form12->QRLabel46->Caption=Label49->Caption;
+        Form12->QRLabel46->Caption=Label49->Caption+" "+Label51->Caption;
         Form12->QRLabel47->Caption=Label53->Caption;
-
+        cadena=Label55->Caption;
+        returntonumber(cadena);
         Form12->QRLabel9->Caption=Label45->Caption;
         Form12->QRLabel10->Caption=Label43->Caption;
         Form12->QRLabel12->Caption=x+y+z;
         Form12->QuickRep3->Preview();
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm1::returntonumber(String cadena){
+        int x=0;
+        String Cadena;
+        char valor[100];
+        StrCopy(valor,cadena.c_str());
+        x=atoi(valor);
+        if(x>=1000000){
+                Cadena+="UN MILLÓN ";
+                x=x-1000000;
+        }
+        if(x>900000){
+                Cadena+="NOVECIENTOS ";
+                x=x-900000;
+        }
+        if(x==900000){
+                Cadena+="NOVECIENTOS MILL ";
+                x=x-900000;
+        }
+        if(x>800000){
+                Cadena+="OCHOCIENTOS ";
+                x=x-800000;
+        }
+        if(x==800000){
+                Cadena+="OCHOCIENTOS MIL ";
+                x=x-800000;
+        }
+        if(x>700000){
+                Cadena+="SETECIENTOS ";
+                x=x-700000;
+        }
+        if(x==700000){
+                Cadena+="SETECIENTOS MIL ";
+                x=x-700000;
+        }
+        if(x>600000){
+                Cadena+="SEISCIENTOS ";
+                x=x-600000;
+        }
+        if(x==600000){
+                Cadena+="SEISCIENTOS MIL ";
+                x=x-600000;
+        }
+        if(x>500000){
+                Cadena+="QUINIENTOS ";
+                x=x-500000;
+        }
+        if(x==500000){
+                Cadena+="QUINIENTOS MIL ";
+                x=x-500000;
+        }
+        if(x>400000){
+                Cadena+="CUATROCIENTOS ";
+                x=x-400000;
+        }
+        if(x==400000){
+                Cadena+="CUATROCIENTOS MIL ";
+                x=x-400000;
+        }
+        if(x>300000){
+                Cadena+="TRESCIENTOS ";
+                x=x-300000;
+        }
+        if(x==300000){
+                Cadena+="TRESCIENTOS MIL ";
+                x=x-300000;
+        }
+        if(x>200000){
+                Cadena+="DOSCIENTOS ";
+                x=x-200000;
+        }
+        if(x==200000){
+                Cadena+="DOSCIENTOS MIL ";
+                x=x-200000;
+        }
+        if(x>100000){
+                Cadena+="CIENTO ";
+                x=x-100000;
+        }
+        if(x==100000){
+                Cadena+="CIEN MIL ";
+                x=x-100000;
+        }
+        if(x>90000){
+                Cadena+="NOVENTA Y ";
+                x=x-90000;
+        }
+        if(x==90000){
+                Cadena+="NOVENTA MIL ";
+                x=x-90000;
+        }
+        if(x>80000){
+                Cadena+="OCHENTA Y ";
+                x=x-80000;
+        }
+        if(x==80000){
+                Cadena+="OCHENTA MIL ";
+                x=x-80000;
+        }
+        if(x>70000){
+                Cadena+="SETENTA Y ";
+                x=x-70000;
+        }
+        if(x==70000){
+                Cadena+="SETENTA MIL ";
+                x=x-70000;
+        }
+        if(x>60000){
+                Cadena+="SESENTA Y ";
+                x=x-60000;
+        }
+        if(x==60000){
+                Cadena+="SESENTA MIL ";
+                x=x-60000;
+        }
+        if(x>50000){
+                Cadena+="CINCUENTA Y ";
+                x=x-50000;
+        }
+        if(x==50000){
+                Cadena+="CINCUENTA MIL ";
+                x=x-50000;
+        }
+        if(x>40000){
+                Cadena+="CUARENTA Y ";
+                x=x-40000;
+        }
+        if(x==40000){
+                Cadena+="CUARENTA MIL ";
+                x=x-40000;
+        }
+        if(x>30000){
+                Cadena+="TREINTA Y ";
+                x=x-30000;
+        }
+        if(x==30000){
+                Cadena+="TREINTA MIL ";
+                x=x-30000;
+        }
+        if(x>20000){
+                Cadena+="VEINTI";
+                x=x-20000;
+        }
+        if(x==20000){
+                Cadena+="VEINTE MIL ";
+                x=x-20000;
+        }
+        if(x>=19000){
+                Cadena+="DIECINUEVE MIL ";
+                x=x-19000;
+        }
+        if(x>=18000){
+                Cadena+="DIECIOCHO MIL ";
+                x=x-18000;
+        }
+        if(x>=17000){
+                Cadena+="DIECISIETE MIL ";
+                x=x-17000;
+        }
+        if(x>=16000){
+                Cadena+="DIECISEIS MIL ";
+                x=x-16000;
+        }
+        if(x>=15000){
+                Cadena+="QUINCE MIL ";
+                x=x-15000;
+        }
+        if(x>=14000){
+                Cadena+="CATORCE MIL ";
+                x=x-14000;
+        }
+        if(x>=13000){
+                Cadena+="TRECE MIL ";
+                x=x-13000;
+        }
+        if(x>=12000){
+                Cadena+="DOCE MIL ";
+                x=x-12000;
+        }
+        if(x>=11000){
+                Cadena+="ONCE MIL ";
+                x=x-11000;
+        }
+        if(x>=10000){
+                Cadena+="DIEZ MIL ";
+                x=x-10000;
+        }
+        if(x>=9000){
+                Cadena+="NUEVE MIL ";
+                x=x-9000;
+        }
+        if(x>=8000){
+                Cadena+="OCHO MIL ";
+                x=x-8000;
+        }
+        if(x>=7000){
+                Cadena+="SIETE MIL ";
+                x=x-7000;
+        }
+        if(x>=6000){
+                Cadena+="SEIS MIL ";
+                x=x-6000;
+        }
+        if(x>=5000){
+                Cadena+="CINCO MIL ";
+                x=x-5000;
+        }
+        if(x>=4000){
+                Cadena+="CUATRO MIL ";
+                x=x-4000;
+        }
+        if(x>=3000){
+                Cadena+="TRES MIL ";
+                x=x-3000;
+        }
+        if(x>=2000){
+                Cadena+="DOS MIL ";
+                x=x-2000;
+        }
+        if(x>=1000){
+                Cadena+="MIL ";
+                x=x-1000;
+        }
+        if(x>=900){
+                Cadena+="NOVECIENTOS ";
+                x=x-900;
+        }
+        if(x>=800){
+                Cadena+="OCHOCIENTOS ";
+                x=x-800;
+        }
+        if(x>=700){
+                Cadena+="SETECIENTOS ";
+                x=x-700;
+        }
+        if(x>=600){
+                Cadena+="SEISCIENTOS ";
+                x=x-600;
+        }
+        if(x>=500){
+                Cadena+="QUINIENTOS ";
+                x=x-500;
+        }
+        if(x>=400){
+                Cadena+="CUATROCIENTOS ";
+                x=x-400;
+        }
+        if(x>=300){
+                Cadena+="TRESCIENTOS ";
+                x=x-300;
+        }
+        if(x>=200){
+                Cadena+="DOSCIENTOS ";
+                x=x-200;
+        }
+        if(x>100){
+                Cadena+="CIENTO ";
+                x=x-100;
+        }
+        if(x==100){
+                Cadena+="CIEN ";
+                x=x-100;
+        }
+        if(x>90){
+                Cadena+="NOVENTA Y";
+                x=x-90;
+        }
+        if(x==90){
+                Cadena+="NOVENTA ";
+                x=x-90;
+        }
+        if(x>80){
+                Cadena+="OCHENTA Y ";
+                x=x-80;
+        }
+        if(x==80){
+                Cadena+="OCHENTA ";
+                x=x-80;
+        }
+        if(x>70){
+                Cadena+="SETENTA Y ";
+                x=x-70;
+        }
+        if(x==70){
+                Cadena+="SETENTA ";
+                x=x-70;
+        }
+        if(x>60){
+                Cadena+="SESENTA Y ";
+                x=x-60;
+        }
+        if(x==60){
+                Cadena+="SESENTA ";
+                x=x-60;
+        }
+        if(x>50){
+                Cadena+="CINCUENTA Y ";
+                x=x-50;
+        }
+        if(x==50){
+                Cadena+="CINCUENTA ";
+                x=x-50;
+        }
+        if(x>40){
+                Cadena+="CUARENTA Y ";
+                x=x-40;
+        }
+        if(x==40){
+                Cadena+="CUARENTA ";
+                x=x-40;
+        }
+        if(x>30){
+                Cadena+="TREINTA Y ";
+                x=x-30;
+        }
+        if(x==30){
+                Cadena+="TREINTA ";
+                x=x-30;
+        }
+        if(x>20){
+                Cadena+="VEINTI";
+                x=x-20;
+        }
+        if(x==20){
+                Cadena+="VEINTE ";
+                x=x-20;
+        }
+        if(x>=19){
+                Cadena+="DIECINUEVE ";
+                x=x-19;
+        }
+        if(x>=18){
+                Cadena+="DIECIOCHO ";
+                x=x-18;
+        }
+        if(x>=17){
+                Cadena+="DIECISIETE ";
+                x=x-17;
+        }
+        if(x>=16){
+                Cadena+="DIECISEIS ";
+                x=x-16;
+        }
+        if(x>=15){
+                Cadena+="QUINCE ";
+                x=x-15;
+        }
+        if(x>=14){
+                Cadena+="CATORCE ";
+                x=x-14;
+        }
+        if(x>=13){
+                Cadena+="TRECE ";
+                x=x-13;
+        }
+        if(x>=12){
+                Cadena+="DOCE ";
+                x=x-12;
+        }
+        if(x>=11){
+                Cadena+="ONCE ";
+                x=x-11;
+        }
+        if(x>=10){
+                Cadena+="DIEZ ";
+                x=x-10;
+        }
+        if(x>=9){
+                Cadena+="NUEVE ";
+                x=x-9;
+        }
+        if(x>=8){
+                Cadena+="OCHO ";
+                x=x-8;
+        }
+        if(x>=7){
+                Cadena+="SIETE ";
+                x=x-7;
+        }
+        if(x>=6){
+                Cadena+="SEIS ";
+                x=x-6;
+        }
+        if(x>=5){
+                Cadena+="CINCO ";
+                x=x-5;
+        }
+        if(x>=4){
+                Cadena+="CUATRO ";
+                x=x-4;
+        }
+        if(x>=3){
+                Cadena+="TRES ";
+                x=x-3;
+        }
+        if(x>=2){
+                Cadena+="DOS ";
+                x=x-2;
+        }
+        if(x>=1){
+                Cadena+="UN ";
+                x=x-1;
+        }
+        if(x>=0){
+                Cadena+="BOLIVARES ";
+        }
+        Form12->QRMemo3->Lines->Add("CONCLUYO  QUE  EL  VALOR  APROXIMADO  DE LOS DAÑOS IDENTIFICADOS PARA LA PRESENTE FECHA, ASCIENDEN A ");
+        cadena=FormatFloat("##,###,###",cadena.ToDouble());
+        Form12->QRMemo3->Lines->Add("LA CANTIDAD DE: "+Cadena+" ("+cadena+" BS.F)");
+        Form12->QRMemo3->Lines->Add("");
+        Form12->QRMemo3->Lines->Add("LA REVISIÓN DEL BIEN SE HIZO EN: "+Label47->Caption+" , LUGAR DONDE SE ENCONTRABA AL MOMENTO");
+        Form12->QRMemo3->Lines->Add("DE SU INSPECCIÓN. SALVO LOS DAÑOS OCULTOS NO OBSERVADOS EN LA REVISIÓN EFECTUADA SE TERMINÓ Y CONFORME FIRMA.");
+        Form12->QRMemo3->Lines->Add("ANEXO: FOTOGRAFÍA AL REVERSO.");
+        Form12->QRMemo3->Lines->Add("* DATOS SUMINISTRADOS POR EL INTERESADO");
+        Form12->QRMemo3->Lines->Add("");
+        Form12->QRMemo3->Lines->Add("");
+        Form12->QRMemo3->Lines->Add("");
+        Form12->QRMemo3->Lines->Add("");
+        Form12->QRMemo3->Lines->Add("");
+        Form12->QRMemo3->Lines->Add("                                                                 ___________________________________");
+        Form12->QRMemo3->Lines->Add("                                                                            PERTIO AVALUADOR");
+}
 
+void __fastcall TForm1::VerReporte1Click(TObject *Sender)
+{
+        Form13->QuickRep1->Preview();
+}
+//---------------------------------------------------------------------------
 

@@ -25,11 +25,10 @@ __published:	// IDE-managed Components
         TEdit *Edit1;
         TLabel *Label1;
         TQuery *Query1;
-        TComboBox *ComboBox1;
-        TLabel *Label2;
         void __fastcall Image2Click(TObject *Sender);
         void __fastcall Image3Click(TObject *Sender);
         void __fastcall Image1Click(TObject *Sender);
+        void __fastcall Edit1KeyPress(TObject *Sender, char &Key);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm11(TComponent* Owner);

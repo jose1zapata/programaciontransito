@@ -3,8 +3,8 @@ object Form11: TForm11
   Top = 121
   BorderStyle = bsNone
   Caption = 'Form11'
-  ClientHeight = 275
-  ClientWidth = 406
+  ClientHeight = 237
+  ClientWidth = 384
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object Form11: TForm11
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 406
+    Width = 384
     Height = 33
     Align = alTop
     Caption = 'Buscar Acta'
@@ -705,7 +705,7 @@ object Form11: TForm11
   object Panel2: TPanel
     Left = 0
     Top = 33
-    Width = 406
+    Width = 384
     Height = 72
     Align = alTop
     TabOrder = 1
@@ -1469,7 +1469,7 @@ object Form11: TForm11
       OnClick = Image1Click
     end
     object Image2: TImage
-      Left = 327
+      Left = 305
       Top = 1
       Width = 78
       Height = 70
@@ -2238,7 +2238,7 @@ object Form11: TForm11
       OnClick = Image2Click
     end
     object Image3: TImage
-      Left = 255
+      Left = 233
       Top = 1
       Width = 72
       Height = 70
@@ -2918,8 +2918,8 @@ object Form11: TForm11
   object Panel3: TPanel
     Left = 0
     Top = 105
-    Width = 406
-    Height = 170
+    Width = 384
+    Height = 132
     Align = alClient
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
@@ -2929,38 +2929,19 @@ object Form11: TForm11
     ParentFont = False
     TabOrder = 2
     object Label1: TLabel
-      Left = 32
-      Top = 72
-      Width = 272
+      Left = 24
+      Top = 32
+      Width = 281
       Height = 18
-      Caption = 'Ingrese el Patron de busqueda'
-    end
-    object Label2: TLabel
-      Left = 32
-      Top = 21
-      Width = 274
-      Height = 18
-      Caption = 'Seleccione patron de busqueda'
+      Caption = 'Ingrese el numero de experticia'
     end
     object Edit1: TEdit
-      Left = 32
-      Top = 96
+      Left = 24
+      Top = 56
       Width = 337
       Height = 26
       TabOrder = 0
-    end
-    object ComboBox1: TComboBox
-      Left = 32
-      Top = 40
-      Width = 337
-      Height = 26
-      ItemHeight = 18
-      TabOrder = 1
-      Text = 'Seleccione'
-      Items.Strings = (
-        'Cedula Conductor'
-        'Placa Vehiculo'
-        'Numero de Experticia')
+      OnKeyPress = Edit1KeyPress
     end
   end
   object Query1: TQuery

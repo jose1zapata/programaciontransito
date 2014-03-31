@@ -137,6 +137,7 @@ __published:	// IDE-managed Components
         TLabel *Label58;
         TLabel *Label59;
         TMenuItem *Salir1;
+        TMenuItem *VerReporte1;
         void __fastcall Image1Click(TObject *Sender);
         void __fastcall Image4Click(TObject *Sender);
         void __fastcall Image2Click(TObject *Sender);
@@ -148,16 +149,18 @@ __published:	// IDE-managed Components
         void __fastcall Salir1Click(TObject *Sender);
         void __fastcall PeritoAvaluador1Click(TObject *Sender);
         void __fastcall Image12Click(TObject *Sender);
+        void __fastcall VerReporte1Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         String reparar[30000],selectreparar[30000],idreparar[30000];
         int totalreparar,totalselectreparar;
-        String cambiar[30000],selectcambiar[30000],idcambiar[30000];
+        String cambiar[30000],selectcambiar[30000],idcambiar[30000],numerocadena;
         int activado;
         int totalcambiar,totalselectcambiar;
         __fastcall TForm1(TComponent* Owner);
 void __fastcall rellenar();
 void __fastcall llamalo();
+void __fastcall returntonumber(String cadena);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;
