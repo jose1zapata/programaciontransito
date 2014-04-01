@@ -3,7 +3,7 @@ object Form12: TForm12
   Top = 121
   Width = 856
   Height = 500
-  VertScrollBar.Position = 711
+  VertScrollBar.Position = 383
   Caption = 'Form12'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,7 +17,7 @@ object Form12: TForm12
   TextHeight = 13
   object QuickRep3: TQuickRep
     Left = 16
-    Top = -711
+    Top = -383
     Width = 816
     Height = 1344
     Frame.Color = clBlack
@@ -136,7 +136,7 @@ object Form12: TForm12
         FontSize = 8
       end
       object QRLabel9: TQRLabel
-        Left = 108
+        Left = 90
         Top = 8
         Width = 47
         Height = 16
@@ -147,7 +147,7 @@ object Form12: TForm12
         Frame.DrawRight = False
         Size.Values = (
           42.3333333333333
-          285.75
+          238.125
           21.1666666666667
           124.354166666667)
         Alignment = taLeftJustify
@@ -161,7 +161,7 @@ object Form12: TForm12
         FontSize = 8
       end
       object QRLabel10: TQRLabel
-        Left = 100
+        Left = 82
         Top = 26
         Width = 53
         Height = 16
@@ -172,7 +172,7 @@ object Form12: TForm12
         Frame.DrawRight = False
         Size.Values = (
           42.3333333333333
-          264.583333333333
+          216.958333333333
           68.7916666666667
           140.229166666667)
         Alignment = taLeftJustify
@@ -324,7 +324,7 @@ object Form12: TForm12
       object QRLabel3: TQRLabel
         Left = 8
         Top = 88
-        Width = 1
+        Width = 47
         Height = 16
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -335,7 +335,7 @@ object Form12: TForm12
           42.3333333333333
           21.1666666666667
           232.833333333333
-          2.64583333333333)
+          124.354166666667)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
@@ -1517,8 +1517,8 @@ object Form12: TForm12
       end
       object QRLabel48: TQRLabel
         Left = 6
-        Top = 228
-        Width = 436
+        Top = 227
+        Width = 433
         Height = 17
         Frame.Color = clBlack
         Frame.DrawTop = False
@@ -1528,15 +1528,15 @@ object Form12: TForm12
         Size.Values = (
           44.9791666666667
           15.875
-          603.25
-          1153.58333333333)
+          600.604166666667
+          1145.64583333333)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
         AutoStretch = False
         Caption = 
-          ' Y POR CUANTO EL VEH'#205'CULO EN REFERENCIA HA SUFRIDO LOS SIGUIENTE' +
-          'S DA'#209'OS:'
+          'Y POR CUANTO EL VEH'#205'CULO EN REFERENCIA HA SUFRIDO LOS SIGUIENTES' +
+          ' DA'#209'OS:'
         Color = clWhite
         Transparent = False
         WordWrap = True
@@ -1544,7 +1544,7 @@ object Form12: TForm12
       end
       object QRMemo3: TQRMemo
         Left = 6
-        Top = 240
+        Top = 241
         Width = 51
         Height = 361
         Frame.Color = clBlack
@@ -1555,12 +1555,12 @@ object Form12: TForm12
         Size.Values = (
           955.145833333333
           15.875
-          635
+          637.645833333333
           134.9375)
         Alignment = taLeftJustify
         AlignToBand = False
         AutoSize = True
-        AutoStretch = False
+        AutoStretch = True
         Color = clWhite
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText

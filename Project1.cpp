@@ -16,6 +16,8 @@ USEFORM("Unit10.cpp", Form10);
 USEFORM("Unit11.cpp", Form11);
 USEFORM("Unit12.cpp", Form12);
 USEFORM("Unit13.cpp", Form13);
+USEFORM("Unit14.cpp", Form14);
+USEFORM("Unit15.cpp", Form15);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -36,6 +38,8 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
                  Application->CreateForm(__classid(TForm11), &Form11);
                  Application->CreateForm(__classid(TForm12), &Form12);
                  Application->CreateForm(__classid(TForm13), &Form13);
+                 Application->CreateForm(__classid(TForm14), &Form14);
+                 Application->CreateForm(__classid(TForm15), &Form15);
                  Application->Run();
         }
         catch (Exception &exception)

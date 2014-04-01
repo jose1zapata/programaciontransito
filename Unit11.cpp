@@ -33,7 +33,15 @@ void __fastcall TForm11::Image3Click(TObject *Sender)
 void __fastcall TForm11::Image1Click(TObject *Sender)
 {
         String valor;
+        int total;
         if(!Edit1->Text.IsEmpty()){
+                valor="select count(*) as total from avaluo where id='"+Edit1->Text+"'";
+                Query1->Close();
+                Query1->SQL->Clear();
+                Query1->SQL->Add(valor);
+                Query1->Active=true;
+                total=Query1->FieldByName("total")->Value;
+            if(total>0){
                 valor="select * from avaluo where id='"+Edit1->Text+"'";
                 Query1->Close();
                 Query1->SQL->Clear();
@@ -164,6 +172,9 @@ void __fastcall TForm11::Image1Click(TObject *Sender)
                 }
 
                 Form11->Close();
+            }else{
+                MessageDlg("El numero de Experticia no existe",mtInformation,TMsgDlgButtons()<<mbOK,0);
+            }
         }else{
                 Image3Click(Sender);
         }

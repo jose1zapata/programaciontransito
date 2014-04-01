@@ -2558,6 +2558,7 @@ object Form1: TForm1
           DE2F1F8D86CC305A2307FFD9}
         Stretch = True
         Transparent = True
+        OnClick = Image3Click
       end
     end
     object Panel12: TPanel
@@ -8830,6 +8831,7 @@ object Form1: TForm1
       object NuevaActa1: TMenuItem
         Caption = 'Nueva Acta'
         ShortCut = 16449
+        OnClick = NuevaActa1Click
       end
       object PeritoAvaluador1: TMenuItem
         Caption = 'Buscar Acta'
@@ -8846,10 +8848,11 @@ object Form1: TForm1
       end
     end
     object menu21: TMenuItem
-      Caption = 'Modificar'
+      Caption = 'Gesti'#243'n de vehiculo'
     end
     object Autopartes1: TMenuItem
       Caption = 'Autopartes'
+      OnClick = Autopartes1Click
     end
   end
   object Database1: TDatabase

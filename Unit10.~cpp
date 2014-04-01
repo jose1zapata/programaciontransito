@@ -141,7 +141,7 @@ void __fastcall TForm10::Image2Click(TObject *Sender)
                                                                 T+="X";
                                                         i++;
                                                 }
-                                                cadena="insert into encabezado values(1,'"+encabezado+"','"+primeraparte+"','SAN CRISTÓBAL',1)";
+                                                cadena="insert into encabezado values(1,'"+encabezado+"','"+T+"','SAN CRISTÓBAL',1)";
                                                 Query1->Close();
                                                 Query1->SQL->Clear();
                                                 Query1->SQL->Add(cadena);
