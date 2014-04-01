@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 193
-  Top = 46
+  Left = 608
+  Top = 61
   BorderStyle = bsNone
   Caption = 'Asociaci'#243'n de Peritos Avaluadores Software'
   ClientHeight = 686
@@ -8856,8 +8856,7 @@ object Form1: TForm1
     end
   end
   object Database1: TDatabase
-    AliasName = 'Apasoft'
-    Connected = True
+    AliasName = 'dsinscripciones'
     DatabaseName = 'base'
     LoginPrompt = False
     Params.Strings = (

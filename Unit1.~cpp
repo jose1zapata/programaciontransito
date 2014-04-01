@@ -881,13 +881,11 @@ void __fastcall TForm1::Image3Click(TObject *Sender)
         Form14->ShowModal();
 }
 //---------------------------------------------------------------------------
-
-
-
-
 void __fastcall TForm1::Autopartes1Click(TObject *Sender)
 {
-        Form15->ShowModal();        
+        llamalo();
+        Form15->rellenar();
+        Form15->ShowModal();
 }
 //---------------------------------------------------------------------------
 
