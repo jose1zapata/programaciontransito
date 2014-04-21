@@ -31,6 +31,7 @@ __published:	// IDE-managed Components
         void __fastcall Edit1KeyPress(TObject *Sender, char &Key);
         void __fastcall Image3Click(TObject *Sender);
         void __fastcall Image2Click(TObject *Sender);
+        void __fastcall Image4Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         String todo[100][100];

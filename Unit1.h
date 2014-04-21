@@ -17,6 +17,8 @@
 #include <DBTables.hpp>
 #include <DBGrids.hpp>
 #include <Grids.hpp>
+#include "UCrpe32.hpp"
+#include "UCrpeClasses.hpp"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -138,6 +140,10 @@ __published:	// IDE-managed Components
         TLabel *Label59;
         TMenuItem *Salir1;
         TMenuItem *VerReporte1;
+        TImage *Image7;
+        TImage *Image13;
+        TImage *Image14;
+        TCrpe *Crpe1;
         void __fastcall Image1Click(TObject *Sender);
         void __fastcall Image4Click(TObject *Sender);
         void __fastcall Image2Click(TObject *Sender);
@@ -149,10 +155,11 @@ __published:	// IDE-managed Components
         void __fastcall Salir1Click(TObject *Sender);
         void __fastcall PeritoAvaluador1Click(TObject *Sender);
         void __fastcall Image12Click(TObject *Sender);
-        void __fastcall VerReporte1Click(TObject *Sender);
         void __fastcall NuevaActa1Click(TObject *Sender);
         void __fastcall Image3Click(TObject *Sender);
         void __fastcall Autopartes1Click(TObject *Sender);
+        void __fastcall Image13Click(TObject *Sender);
+        void __fastcall Image14Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         String reparar[30000],selectreparar[30000],idreparar[30000];
@@ -163,6 +170,7 @@ public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
 void __fastcall rellenar();
 void __fastcall llamalo();
+
 void __fastcall returntonumber(String cadena);
 };
 //---------------------------------------------------------------------------

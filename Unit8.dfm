@@ -1,10 +1,10 @@
 object Form8: TForm8
-  Left = 441
-  Top = 173
+  Left = 398
+  Top = 236
   BorderStyle = bsNone
   Caption = 'Form8'
   ClientHeight = 248
-  ClientWidth = 387
+  ClientWidth = 357
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object Form8: TForm8
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 387
+    Width = 357
     Height = 25
     Align = alTop
     Caption = 'Agregar Tipo'
@@ -705,7 +705,7 @@ object Form8: TForm8
   object Panel2: TPanel
     Left = 0
     Top = 25
-    Width = 387
+    Width = 357
     Height = 64
     Align = alTop
     TabOrder = 1
@@ -1434,7 +1434,7 @@ object Form8: TForm8
       OnClick = Image2Click
     end
     object Image3: TImage
-      Left = 313
+      Left = 283
       Top = 1
       Width = 73
       Height = 62
@@ -2203,7 +2203,7 @@ object Form8: TForm8
       OnClick = Image3Click
     end
     object Image4: TImage
-      Left = 241
+      Left = 211
       Top = 1
       Width = 72
       Height = 62
@@ -2852,14 +2852,14 @@ object Form8: TForm8
   object Panel3: TPanel
     Left = 0
     Top = 89
-    Width = 387
+    Width = 357
     Height = 159
     Align = alClient
     TabOrder = 2
     object GroupBox1: TGroupBox
       Left = 1
       Top = 1
-      Width = 385
+      Width = 355
       Height = 157
       Align = alClient
       Font.Charset = ANSI_CHARSET

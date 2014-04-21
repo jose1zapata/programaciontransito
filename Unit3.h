@@ -43,7 +43,6 @@ __published:	// IDE-managed Components
         TEdit *Edit3;
         TLabel *Label9;
         TEdit *Edit4;
-        TMemo *Memo2;
         TLabel *Label10;
         TComboBox *ComboBox6;
         TComboBox *ComboBox7;
@@ -52,6 +51,11 @@ __published:	// IDE-managed Components
         TLabel *Label12;
         TLabel *Label13;
         TQuery *Query1;
+        TComboBox *ComboBox8;
+        TImage *Image5;
+        TComboBox *ComboBox9;
+        TImage *Image6;
+        TLabel *Label14;
         void __fastcall Image3Click(TObject *Sender);
         void __fastcall Image2Click(TObject *Sender);
         void __fastcall Edit2KeyPress(TObject *Sender, char &Key);
@@ -62,11 +66,17 @@ __published:	// IDE-managed Components
         void __fastcall Edit3KeyPress(TObject *Sender, char &Key);
         void __fastcall Edit1KeyPress(TObject *Sender, char &Key);
         void __fastcall Edit5KeyPress(TObject *Sender, char &Key);
+        void __fastcall Image5Click(TObject *Sender);
+        void __fastcall Image6Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm3(TComponent* Owner);
-        String idperito,numerito;
+        String idperito,numerito,CADENA;
+        String Direccion[10000],Ciudad[10000];
+        int DIRECCION,CIUDAD;
        void  __fastcall formularXD();
+       void __fastcall ciudad();
+       void  __fastcall direccion();
        void __fastcall super(String sms);
 };
 //---------------------------------------------------------------------------

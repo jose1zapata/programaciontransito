@@ -27,7 +27,6 @@ void __fastcall TForm14::Edit1KeyPress(TObject *Sender, char &Key)
 void __fastcall TForm14::rellenar(){
         String cadena;
         int i=0;
-        MessageDlg("Si la autoparte no existe, puedes agregarla.\nSi agregar una nueva autoparte, las autopartes ya antes seleccionadas, dejarán de existir y tendrá que volver a selecionar\nRECOMENDACIÓN: LAS AUTOPARTES REVISAR SU EXISTENCIA ANTES Y SI NO EXISTE, PUEDE AGREGAR AUTOPARTES", mtInformation, TMsgDlgButtons() << mbOK, 0);
         cadena="select * from tipoautoparte";
         Query1->Close();
         Query1->SQL->Clear();
@@ -70,6 +69,12 @@ void __fastcall TForm14::Image2Click(TObject *Sender)
         }else{
                 MessageDlg("Debe rellenar el campo de la autoparte", mtInformation, TMsgDlgButtons() << mbOK, 0);
         }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm14::Image4Click(TObject *Sender)
+{
+        ShowMessage("Debe escribir la autoparte a agregar\n Una vez hecho esto, selecciona que tipo desea cambiar/repara\n eso es todo");        
 }
 //---------------------------------------------------------------------------
 

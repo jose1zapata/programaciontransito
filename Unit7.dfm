@@ -1,10 +1,10 @@
 object Form7: TForm7
-  Left = 497
-  Top = 215
+  Left = 408
+  Top = 249
   BorderStyle = bsNone
   Caption = 'Form7'
   ClientHeight = 240
-  ClientWidth = 387
+  ClientWidth = 295
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object Form7: TForm7
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 387
+    Width = 295
     Height = 25
     Align = alTop
     Caption = 'Agregar Color'
@@ -705,7 +705,7 @@ object Form7: TForm7
   object Panel2: TPanel
     Left = 0
     Top = 25
-    Width = 387
+    Width = 295
     Height = 72
     Align = alTop
     TabOrder = 1
@@ -1434,7 +1434,7 @@ object Form7: TForm7
       OnClick = Image2Click
     end
     object Image3: TImage
-      Left = 312
+      Left = 220
       Top = 1
       Width = 74
       Height = 70
@@ -2203,7 +2203,7 @@ object Form7: TForm7
       OnClick = Image3Click
     end
     object Image4: TImage
-      Left = 239
+      Left = 147
       Top = 1
       Width = 73
       Height = 70
@@ -2852,14 +2852,14 @@ object Form7: TForm7
   object Panel3: TPanel
     Left = 0
     Top = 97
-    Width = 387
+    Width = 295
     Height = 143
     Align = alClient
     TabOrder = 2
     object GroupBox1: TGroupBox
       Left = 1
       Top = 1
-      Width = 385
+      Width = 293
       Height = 141
       Align = alClient
       Font.Charset = ANSI_CHARSET
@@ -2870,14 +2870,14 @@ object Form7: TForm7
       ParentFont = False
       TabOrder = 0
       object Label1: TLabel
-        Left = 96
+        Left = 56
         Top = 40
         Width = 42
         Height = 18
         Caption = 'Color'
       end
       object Edit1: TEdit
-        Left = 96
+        Left = 56
         Top = 64
         Width = 185
         Height = 26

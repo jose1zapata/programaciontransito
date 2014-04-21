@@ -143,6 +143,7 @@ void __fastcall TForm2::Image2Click(TObject *Sender)
                                                 if(!Edit5->Text.IsEmpty()){
                                                         if(!Memo1->Text.IsEmpty()){
                                                                         Form1->activado=1;
+                                                                        Form4->Edit1->Text=Edit6->Text;
                                                                         Edit1->Text=FormatFloat("##,###,###",Edit1->Text.ToDouble());
                                                                         Edit3->Text=FormatFloat("##,###,###",Edit3->Text.ToDouble());
                                                                         Edit5->Text=codigo[ComboBox1->ItemIndex]+"-"+Edit5->Text;
@@ -270,6 +271,7 @@ void __fastcall TForm2::Image5Click(TObject *Sender)
         Query1->Active=true;
         Image2->Visible=true;
         Image5->Visible=false;
+        Form4->Edit1->Text=Edit6->Text;
         Form1->Label5->Caption=Edit2->Text;//nombre conductor
         Form1->Label7->Caption=Edit1->Text;//cedula conductor
         Form1->Label9->Caption=Edit4->Text;//nombre propietario
@@ -372,7 +374,7 @@ void __fastcall TForm2::Edit6KeyPress(TObject *Sender, char &Key)
                 var.tipo_id=Query1->FieldByName("tipo_id")->Value;
                 var.color_id=Query1->FieldByName("color_id")->Value;
                 var.seguro_id=Query1->FieldByName("seguro_id")->Value;
-                var.uso=Query1->FieldByName("uso")->Value;
+                var.uso=Query1->FieldByName("uso_id")->Value;
                 var.condutores_id=Query1->FieldByName("conductores_id")->Value;
                 cadena="select * from marca where id="+var.marca_id;
 	        Query1->Close();
@@ -380,6 +382,13 @@ void __fastcall TForm2::Edit6KeyPress(TObject *Sender, char &Key)
 	        Query1->SQL->Add(cadena);
 	        Query1->Active=true;
 	        var2.nombre=Query1->FieldByName("nombre")->Value;
+         //----------------------------------------------------
+                cadena="select * from uso where id="+var.uso;
+	        Query1->Close();
+	        Query1->SQL->Clear();
+	        Query1->SQL->Add(cadena);
+	        Query1->Active=true;
+	        var.uso=Query1->FieldByName("nombre")->Value;
 	//-----------------------------------------------------
 	        cadena="select * from modelo where id="+var.modelo_id;
 	        Query1->Close();

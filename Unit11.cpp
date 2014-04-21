@@ -32,7 +32,7 @@ void __fastcall TForm11::Image3Click(TObject *Sender)
 
 void __fastcall TForm11::Image1Click(TObject *Sender)
 {
-        String valor;
+        String valor,x,y;
         int total;
         if(!Edit1->Text.IsEmpty()){
                 valor="select count(*) as total from avaluo where id='"+Edit1->Text+"'";
@@ -50,16 +50,25 @@ void __fastcall TForm11::Image1Click(TObject *Sender)
                 Form1->Label41->Caption=Query1->FieldByName("fecha")->Value;
                 Form1->Label43->Caption=Query1->FieldByName("id")->Value;
                 Form1->Label45->Caption=Query1->FieldByName("expediente")->Value;
-                Form1->Label47->Caption=Query1->FieldByName("lugarinspeccion")->Value;
+                Form1->Label47->Caption=Query1->FieldByName("direccionrevision_id")->Value;
                 Form1->Label57->Caption=Query1->FieldByName("accidente_id")->Value;
+                valor="select * from direccionrevision where id="+Form1->Label47->Caption;
+                Query1->Close();
+                Query1->SQL->Clear();
+                Query1->SQL->Add(valor);
+                Query1->Active=true;
+                Form1->Label47->Caption=Query1->FieldByName("lugar")->Value;
                 //accidente
+                valor="";
                 valor="select * from accidente where id='"+Form1->Label57->Caption+"'";
                 Query1->Close();
                 Query1->SQL->Clear();
                 Query1->SQL->Add(valor);
                 Query1->Active=true;
+                x=Query1->FieldByName("monto")->Value;
+                y=Query1->FieldByName("montoletra")->Value;
                 Form1->Label53->Caption=Query1->FieldByName("hora")->Value;
-                Form1->Label55->Caption=Query1->FieldByName("monto")->Value;
+                Form1->Label55->Caption=y+" BOLIVARES. ("+x+" Bs).";
                 Form1->Label51->Caption=Query1->FieldByName("fecha")->Value;
                 Form1->Label49->Caption=Query1->FieldByName("direccion")->Value;
                 Form1->Label39->Caption=Query1->FieldByName("vehiculo_id")->Value;
@@ -72,7 +81,7 @@ void __fastcall TForm11::Image1Click(TObject *Sender)
                 Form1->Label31->Caption=Query1->FieldByName("serialcarroceria")->Value;
                 Form1->Label33->Caption=Query1->FieldByName("serialmotor")->Value;
                 Form1->Label37->Caption=Query1->FieldByName("numeropoliza")->Value;
-                Form1->Label59->Caption=Query1->FieldByName("uso")->Value;
+                Form1->Label59->Caption=Query1->FieldByName("uso_id")->Value;
                 Form1->Label29->Caption=Query1->FieldByName("placa")->Value;
                 Form1->Label25->Caption=Query1->FieldByName("anho")->Value;
                 Form1->Label39->Caption=Query1->FieldByName("id")->Value;

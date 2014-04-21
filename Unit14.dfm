@@ -1,6 +1,6 @@
 object Form14: TForm14
-  Left = 362
-  Top = 148
+  Left = 335
+  Top = 165
   BorderStyle = bsNone
   Caption = 'Form14'
   ClientHeight = 278
@@ -2878,6 +2878,7 @@ object Form14: TForm14
         B2DCE7D8C8DC2C6F637FC07E5DECEE5BCB6F5F0579B8BCDF3F58E575DF0796F1
         78FC6C3C30C1288C1FFFD9}
       Stretch = True
+      OnClick = Image4Click
     end
   end
   object Panel3: TPanel

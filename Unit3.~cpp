@@ -4,6 +4,8 @@
 #pragma hdrstop
 
 #include "Unit3.h"
+#include "Unit16.h"
+#include "Unit18.h"
 #include "Unit1.h"
 #include "ctype.h"
 //---------------------------------------------------------------------------
@@ -18,13 +20,61 @@ __fastcall TForm3::TForm3(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm3::ciudad(){
+        String cadena;
+        bool band=false;
+        cadena="select * from ciudadinspeccion";
+        Query1->Close();
+        Query1->SQL->Clear();
+        Query1->SQL->Add(cadena);
+        Query1->Active=true;
+        Query1->First();
+        ComboBox9->Clear();
+        ComboBox9->Text="Seleccione";
+        CIUDAD=0;
+        while(!Query1->Eof){
+                band=true;
+                cadena=Query1->FieldByName("nombre")->Value;
+                Ciudad[CIUDAD]=cadena;
+                ComboBox9->Items->Add(cadena);
+                CIUDAD++;
+                Query1->Next();
+        }
+        if(band==false){
+                ComboBox9->Items->Add("No hay registros");
+        }
+}
+void __fastcall TForm3::direccion(){
+        String cadena;
+        bool band=false;
+        cadena="select * from direccionrevision";
+        Query1->Close();
+        Query1->SQL->Clear();
+        Query1->SQL->Add(cadena);
+        Query1->Active=true;
+        Query1->First();
+        ComboBox8->Clear();
+        ComboBox8->Text="Seleccione";
+        DIRECCION=0;
+        while(!Query1->Eof){
+                band=true;
+                cadena=Query1->FieldByName("lugar")->Value;
+                Direccion[DIRECCION]=cadena;
+                ComboBox8->Items->Add(cadena);
+                DIRECCION++;
+                Query1->Next();
+        }
+        if(band==false){
+                ComboBox8->Items->Add("No hay registros");
+        }
+}
 void __fastcall TForm3::formularXD(){
         int aux;
         Edit1->Text="20";
         Edit5->Text="20";
         Edit2->Clear();
         Memo1->Clear();
-        Memo2->Clear();
+//        Memo2->Clear();
         Edit3->Clear();
         Edit4->Clear();
         ComboBox1->Clear();
@@ -43,23 +93,33 @@ void __fastcall TForm3::formularXD(){
         ComboBox5->Text="AM/PM";
         ComboBox5->Items->Add(AMPM[0]);
         ComboBox5->Items->Add(AMPM[1]);
+        for (int i=0;i<12;i++){
+                MESES[i]=NULL;
+                HORA[i]=NULL;
+        }
         for (int i=0;i<12;i++)//HORAS,MESES
         {
                 if(i<9){
-                        MESES[i]=HORA[i]="0";
+                        MESES[i]="0";
+                        HORA[i]="0";
                         aux=i+1;
-                        MESES[i]=HORA[i]+=aux;
+                        MESES[i]+=aux;
+                        HORA[i]+=aux;
                         ComboBox2->Items->Add(MESES[i]);
                         ComboBox3->Items->Add(HORA[i]);
                         ComboBox7->Items->Add(MESES[i]);
                 }else{
                         aux=i+1;
-                        MESES[i]=HORA[i]+=aux;
+                        MESES[i]=aux;
+                        HORA[i]=aux;
                         ComboBox2->Items->Add(MESES[i]);
                         ComboBox3->Items->Add(HORA[i]);
                         ComboBox7->Items->Add(MESES[i]);
                 }
         }
+        for (int i=0;i<31;i++){
+                DIA[i]=NULL;
+        }//dias
         for (int i=0;i<31;i++)//dias
         {
                 if(i<9){
@@ -70,22 +130,24 @@ void __fastcall TForm3::formularXD(){
                         ComboBox1->Items->Add(DIA[i]);
                 }else{
                         aux=i+1;
-                        DIA[i]+=aux;
+                        DIA[i]=aux;
                         ComboBox6->Items->Add(DIA[i]);
                         ComboBox1->Items->Add(DIA[i]);
                 }
         }
-
+        for (int i=0;i<60;i++){
+                MINUTOS[i]=NULL;
+        }
         for (int i=0;i<60;i++)//MINUTOS
         {
-                if(i<9){
+                if(i<=9){
                         MINUTOS[i]="0";
                         aux=i;
                         MINUTOS[i]+=aux;
                         ComboBox4->Items->Add(MINUTOS[i]);
                 }else{
                         aux=i;
-                        MINUTOS[i]+=aux;
+                        MINUTOS[i]=aux;
                         ComboBox4->Items->Add(MINUTOS[i]);
                 }
         }
@@ -115,9 +177,11 @@ void __fastcall TForm3::Image2Click(TObject *Sender)
                                                                                 if(ComboBox6->ItemIndex!=-1){
                                                                                         if(ComboBox7->ItemIndex!=-1){
                                                                                                 if(!Edit5->Text.IsEmpty()&&Edit5->Text.Length()){
-                                                                                                        if(!Memo2->Text.IsEmpty()){
+                                                                                                        if(ComboBox8->ItemIndex!=-1){
+                                                                                                           if(ComboBox9->ItemIndex!=-1){
                                                                                                                 Form1->activado=3;
-                                                                                                                String fechaaccidente,horaaccidente,fechaavaluo,cadena,totale;
+                                                                                                                Form1->returntonumber(Edit2->Text);
+                                                                                                                String fechaaccidente,horaaccidente,fechaavaluo,cadena,totale,VE;
                                                                                                                 int total;
                                                                                                                 fechaaccidente=Edit1->Text+"-"+MESES[ComboBox2->ItemIndex]+"-"+DIA[ComboBox1->ItemIndex];
                                                                                                                 horaaccidente=HORA[ComboBox3->ItemIndex]+":"+MINUTOS[ComboBox4->ItemIndex]+" "+AMPM[ComboBox5->ItemIndex];
@@ -130,34 +194,41 @@ void __fastcall TForm3::Image2Click(TObject *Sender)
                                                                                                                 total=Query1->FieldByName("total")->Value;
                                                                                                                 total++;
                                                                                                                 totale=total;
-                                                                                                                cadena="INSERT INTO accidente VALUES("+totale+",'"+Memo1->Text+"','"+fechaaccidente+"','"+horaaccidente+"',"+Edit2->Text+","+Form1->Label39->Caption+","+idperito+")";
+                                                                                                                cadena="INSERT INTO accidente VALUES("+totale+",'"+Memo1->Text+"','"+fechaaccidente+"','"+horaaccidente+"',"+Edit2->Text+","+Form1->Label39->Caption+","+idperito+",'"+CADENA+"')";
                                                                                                                 Query1->Close();
                                                                                                                 Query1->SQL->Clear();
                                                                                                                 Query1->SQL->Add(cadena);
                                                                                                                 Query1->ExecSQL();
                                                                                                                 //---------------------------------------------------------------------------
                                                                                                                 fechaavaluo=Edit5->Text+"-"+MESES[ComboBox7->ItemIndex]+"-"+DIA[ComboBox6->ItemIndex];
-                                                                                                                cadena="INSERT INTO avaluo VALUES('"+numerito+"','"+Edit4->Text+"','"+Memo2->Text+"','"+fechaavaluo+"',"+totale+")";
+
+                                                                                                                VE="INSERT INTO avaluo VALUES('"+numerito+"','"+Edit4->Text+"',"+(ComboBox8->ItemIndex+1)+",'"+fechaavaluo+"',"+totale+","+(ComboBox9->ItemIndex+1)+")";
                                                                                                                 Query1->Close();
                                                                                                                 Query1->SQL->Clear();
-                                                                                                                Query1->SQL->Add(cadena);
+                                                                                                                Query1->SQL->Add(VE);
                                                                                                                 Query1->ExecSQL();
+                                                                                                                String x=ComboBox8->ItemIndex+1;
+                                                                                                                VE="select * from direccionrevision where id="+(x);
+                                                                                                                Query1->Close();
+                                                                                                                Query1->SQL->Clear();
+                                                                                                                Query1->SQL->Add(VE);
+                                                                                                                Query1->Active=true;
                                                                                                                 super("Acta levantada con éxito.");
                                                                                                                 Form1->Label41->Caption=fechaavaluo;
                                                                                                                 Form1->Label43->Caption=Edit3->Text;
                                                                                                                 Form1->Label45->Caption=Edit4->Text;
                                                                                                                 Form1->Label53->Caption=horaaccidente;
-                                                                                                                Form1->Label55->Caption=Edit2->Text;
+                                                                                                                Form1->Label55->Caption=Edit2->Text+" Bs. ("+CADENA+")";
                                                                                                                 Form1->Label51->Caption=fechaaccidente;
                                                                                                                 Form1->Label49->Caption=Memo1->Text;
-                                                                                                                Form1->Label47->Caption=Memo2->Text;
+                                                                                                                Form1->Label47->Caption=Query1->FieldByName("lugar")->Value;
                                                                                                                 Form1->Label57->Caption=totale;
                                                                                                                 Form3->Close();
                                                                                                                 Edit1->Text="20";
                                                                                                                 Edit5->Text="20";
                                                                                                                 Edit2->Clear();
                                                                                                                 Memo1->Clear();
-                                                                                                                Memo2->Clear();
+                                                                                                                //Memo2->Clear();
                                                                                                                 Edit3->Clear();
                                                                                                                 Edit4->Clear();
                                                                                                                 ComboBox1->Clear();
@@ -167,7 +238,9 @@ void __fastcall TForm3::Image2Click(TObject *Sender)
                                                                                                                 ComboBox5->Clear();
                                                                                                                 ComboBox6->Clear();
                                                                                                                 ComboBox7->Clear();
-
+                                                                                                           }else{
+                                                                                                                super("Ingrese Ciudad de revision del bien");
+                                                                                                           }
                                                                                                         }else{
                                                                                                                 super("Ingrese Dirección de revision del bien");
                                                                                                         }
@@ -273,13 +346,13 @@ void __fastcall TForm3::Memo1KeyPress(TObject *Sender, char &Key)
 
 void __fastcall TForm3::Memo2KeyPress(TObject *Sender, char &Key)
 {
-        Memo1KeyPress(Sender,Key);        
+        Memo1KeyPress(Sender,Key);
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm3::Edit3KeyPress(TObject *Sender, char &Key)
 {
-        Memo2KeyPress(Sender,Key);        
+        Memo2KeyPress(Sender,Key);
 }
 //---------------------------------------------------------------------------
 
@@ -290,11 +363,20 @@ void __fastcall TForm3::Edit1KeyPress(TObject *Sender, char &Key)
         }
 }
 //---------------------------------------------------------------------------
-
 void __fastcall TForm3::Edit5KeyPress(TObject *Sender, char &Key)
 {
-        Edit2KeyPress(Sender,Key);        
+        Edit2KeyPress(Sender,Key);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm3::Image5Click(TObject *Sender)
+{
+        Form16->ShowModal();        
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm3::Image6Click(TObject *Sender)
+{
+        Form18->ShowModal();
+}
+//---------------------------------------------------------------------------
 

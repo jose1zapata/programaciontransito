@@ -39,6 +39,7 @@ __published:	// IDE-managed Components
         void __fastcall ComboBox2Change(TObject *Sender);
         void __fastcall Image4Click(TObject *Sender);
         void __fastcall Image2Click(TObject *Sender);
+        void __fastcall Image5Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         String todo[100][100];

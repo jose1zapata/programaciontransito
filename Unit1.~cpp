@@ -15,6 +15,8 @@
 #include "Unit15.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
+#pragma link "UCrpe32"
+#pragma link "UCrpeClasses"
 #pragma resource "*.dfm"
 TForm1 *Form1;
 bool press=0;
@@ -26,6 +28,9 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 
         activado=0;
         Form1->WindowState=wsMaximized;
+        Panel1->Width=400;
+        Panel6->Width=200;
+        Panel7->Width=200;
 
         rellenar();
 
@@ -96,6 +101,8 @@ void __fastcall TForm1::Image4Click(TObject *Sender)
        if(activado==2){
         Form3->Edit3Click(Sender);
         Form3->formularXD();
+        Form3->direccion();
+        Form3->ciudad();
         Form3->ShowModal();
        }else{
         MessageDlg("Debes registrar el vehiculo primero", mtInformation, TMsgDlgButtons() << mbOK, 0);
@@ -110,6 +117,8 @@ void __fastcall TForm1::Image2Click(TObject *Sender)
         Form4->colores();
         Form4->tipo();
         Form4->seguro();
+        Form4->anho();
+        Form4->uso();
         Form4->ShowModal();
        }else{
         MessageDlg("Debes registrar el conductor primero", mtInformation, TMsgDlgButtons() << mbOK, 0);
@@ -216,7 +225,7 @@ void __fastcall TForm1::Image5Click(TObject *Sender)
                 activado=4;
         }else{
                 MessageDlg("Debe primero Ingresar 'Acta Avaluo accidente'",mtInformation,TMsgDlgButtons()<<mbOK,0);
-        }        
+        }
 }
 //---------------------------------------------------------------------------
 
@@ -238,167 +247,144 @@ void __fastcall TForm1::PeritoAvaluador1Click(TObject *Sender)
 void __fastcall TForm1::Image12Click(TObject *Sender)
 {
         llamalo();
-        String cadena,sitio,primera;
+        String cadena,sitio,primera,fecha,x,y,z,estas;
         String meses[13]={"ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"};
         char cadenota[200],FECHA[10],*p,primero[10000];
-
-        if(press==0){
-        Form12->QRMemo3->Lines->Clear();
-        press=0;
-        for(int i=0;i<10000;i++){
-                primero[i]=NULL;
-                if(i<200)
-                cadenota[i]=NULL;
-                if(i<10)
-                FECHA[i]=NULL;
-        }
-        int i=0;
-        cadena="select * from encabezado where id=1";
+        int j=0;
+        String cambio,repararlo;
+        Form11->Edit1->Text=Label43->Caption;
+        sitio=Label43->Caption;
+        NuevaActa1Click(Sender);
+        Form11->Image1Click(Sender);
+        cadena="select c.nombre as nombre from ciudadinspeccion c, avaluo a where c.id=a.ciudadinspeccion_id and a.id='"+sitio+"'";
         Query1->Close();
         Query1->SQL->Clear();
         Query1->SQL->Add(cadena);
         Query1->Active=true;
-        cadena=Query1->FieldByName("cabecera")->Value;
-        sitio=Query1->FieldByName("sitio")->Value;
-        primera=Query1->FieldByName("primeraparte")->Value;
-        Form12->QRLabel11->Caption=sitio+",";
-        StrCopy(cadenota,cadena.c_str());
-        p=strtok(cadenota,"\n");
+        estas=Query1->FieldByName("nombre")->Value;
+        cadena="DELETE FROM reporte WHERE id=1";
+        Query1->Close();
+        Query1->SQL->Clear();
+        Query1->SQL->Add(cadena);
+        Query1->ExecSQL();
+        fecha=Label41->Caption;
+        StrCopy(cadenota,fecha.c_str());
+        fecha=NULL;
+        p=strtok(cadenota,"-");
         while(p!=NULL){
-                cadena=p;
-                Form12->QRMemo2->Lines->Add(cadena);
-                p=strtok(NULL,"\n");
-        }
-        i=0;
-        int total=0;
-        String X;
-        cadena=Label41->Caption;
-        StrCopy(FECHA,cadena.c_str());
-        p=strtok(FECHA,"-");
-        String x,y,z;
-        X=p;
-        total=X.Length();
-        while(p!=NULL){
-                if(i==0){
-                        if(total==4){
-                                z=" DEL ";
-                                z+=p;
-                        }else{
-                                x=" ";
-                                x+=p;
-                        }
-
+                if(j==0){
+                        z=" DEL ";
+                        z+=p;
                 }
-                if(i==1){
+                if(j==1){
                         y=" DE ";
                         y+=meses[atoi(p)-1];
                 }
-                if(i==2){
-                        if(total==2){
-                                z=" DEL ";
-                                z+=p;
-                        }else{
-                                x=" ";
-                                x+=p;
-                        }
+                if(j==2){
+                        x=", ";
+                        x+=p;
                 }
                 p=strtok(NULL,"-");
-                i++;
+                j++;
         }
-        StrCopy(primero,primera.c_str());
-        p=strtok(primero,"\n");
-        while(p!=NULL){
-                cadena=p;
-                if(cadena=="METODOLOGÍA APLICADA"){
-                        Form12->QRMemo1->Lines->Add("");
-                        Form12->QRLabel3->Caption=cadena;
-                        Form12->QRLabel3->Font->Style=TFontStyles() << fsBold << fsUnderline;
-                        Form12->QRLabel3->Left=2;
-                        Form12->QRLabel3->Top=113;
-                        Form12->QRMemo1->Lines->Add("");
-                }else
-                Form12->QRMemo1->Lines->Add(cadena);
-                p=strtok(NULL,"\n");
-        }
-        int I=0;
-        if(totalselectreparar!=0){
-        cadena=NULL;
-        cadena="";
-        cadena="LAS PIEZAS QUE SE DESCRIBEN ESTAN DAÑADAS Y AMERITAN CAMBIO:";
-        Form12->QRMemo3->Lines->Add(cadena);
-        while (1)
+        fecha=estas;
+        fecha+=x+y+z;
+        for (int i=0;i<totalselectreparar;i++)
         {
-                cadena="";
-                while(I<totalselectreparar){
-                        cadena+=reparar[atoi(selectreparar[I].c_str())]+", ";
-                        I++;
-                        if(I%5==0)
-                                break;
-                }
-                Form12->QRMemo3->Lines->Add(cadena);
-                cadena="";
-                if(I==totalselectreparar){
-                        break;
-                }
-        }
-        }
-        if(totalselectcambiar!=0){
-        if(totalselectcambiar!=0){
-        I=0;
-        cadena="";
-        cadena="ESTA OTRA PIEZA A MENCIONAR POSEE DEFORMACION REPARABLE:";
-        Form12->QRMemo3->Lines->Add(cadena);
-        while (1)
-        {
-                cadena="";
-                while(I<totalselectcambiar){
-                        for (int j=0;j<totalcambiar;j++)
+                if((i+1)==totalselectreparar){
+                        for (int j=0;j<totalreparar;j++)
                         {
-                                if(selectcambiar[I]==idcambiar[j]){
-                                        cadena+=cambiar[j]+", ";
+                                if(idreparar[j]==selectreparar[i]){
+                                        cambio+=reparar[i]+". ";
                                         break;
                                 }
                         }
-                        I++;
-                        if(I%5==0)
-                                break;
+
                 }
-                Form12->QRMemo3->Lines->Add(cadena);
-                cadena="";
-                if(I==totalselectcambiar){
-                        break;
+                else{
+                        for (int j=0;j<totalreparar;j++)
+                        {
+                                if(idreparar[j]==selectreparar[i]){
+                                        cambio+=reparar[j]+", ";
+                                        break;
+                                }
+                        }
                 }
         }
+        for (int i=0;i<totalselectcambiar;i++)
+        {
+                if((i+1)==totalselectcambiar){
+                        for (int j=0;j<totalcambiar;j++)
+                        {
+                                if(idcambiar[j]==selectcambiar[i]){
+                                        repararlo+=cambiar[j]+". ";
+                                        break;
+                                }
+                        }
+                }
+                else{
+                        for (int j=0;j<totalcambiar;j++)
+                        {
+                                if(idcambiar[j]==selectcambiar[i]){
+                                        repararlo+=cambiar[j]+", ";
+                                        break;
+                                }
+                        }
+
+                }
         }
+
+        cadena="insert into reporte value(1,";
+        cadena+="'"+Label5->Caption+"',";//nc
+        cadena+="'"+Label7->Caption+"',";//cc
+        cadena+="'"+Label9->Caption+"',";//np
+        cadena+="'"+Label11->Caption+"',";//cp
+        cadena+="'"+Label13->Caption+"',";//tl
+        cadena+="'"+Label15->Caption+"',";//di
+        cadena+="'"+Label19->Caption+"',";//marca
+        cadena+="'"+Label21->Caption+"',";//modelo
+        cadena+="'"+Label23->Caption+"',";//tipo
+        cadena+="'"+Label25->Caption+"',";//año
+        cadena+="'"+Label27->Caption+"',";//color
+        cadena+="'"+Label29->Caption+"',";//placa
+        cadena+="'"+Label31->Caption+"',";//carroceria
+        cadena+="'"+Label33->Caption+"',";//motor
+        cadena+="'"+Label35->Caption+"',";//seguro
+        cadena+="'"+Label37->Caption+"',";//poliza
+        cadena+="'"+Label59->Caption+"',";//uso
+        cadena+="'"+fecha+"',";//fecha acta avaluo
+        cadena+="'"+Label43->Caption+"',";//experticia
+        cadena+="'"+Label45->Caption+"',";//pendiente
+        cadena+="'"+Label53->Caption+"',";//hora
+        cadena+="'"+Label55->Caption+"',";//monto
+        cadena+="'"+Label51->Caption+"',";//fechaacidente
+        cadena+="'"+Label49->Caption+"',";//direccionaccidente
+        cadena+="'"+Label47->Caption+"',";//direccionrevision
+        if(!cambio.IsEmpty())
+                cadena+="'LAS PIEZAS QUE SE DESCRIBEN ESTAN DAÑADAS Y AMERITAN CAMBIO: "+cambio+"',";//piezas cambio
+        else{
+                cadena+="''";
         }
-//      Form12->QRMemo3->Lines->Add();
-        Form12->QRMemo3->Lines->Add("");
-        Form12->QRLabel29->Caption=Label29->Caption;
-        Form12->QRLabel30->Caption=Label5->Caption;
-        Form12->QRLabel31->Caption=Label7->Caption;
-        Form12->QRLabel32->Caption=Label9->Caption;
-        Form12->QRLabel33->Caption=Label11->Caption;
-        Form12->QRLabel34->Caption=Label15->Caption;
-        Form12->QRLabel35->Caption=Label13->Caption;
-        Form12->QRLabel36->Caption=Label19->Caption;
-        Form12->QRLabel37->Caption=Label21->Caption;
-        Form12->QRLabel38->Caption=Label25->Caption;
-        Form12->QRLabel39->Caption=Label23->Caption;
-        Form12->QRLabel40->Caption=Label27->Caption;
-        Form12->QRLabel41->Caption=Label59->Caption;
-        Form12->QRLabel42->Caption=Label31->Caption;
-        Form12->QRLabel43->Caption=Label33->Caption;
-        Form12->QRLabel44->Caption=Label35->Caption;
-        Form12->QRLabel45->Caption=Label37->Caption;
-        Form12->QRLabel46->Caption=Label49->Caption+" "+Label51->Caption;
-        Form12->QRLabel47->Caption=Label53->Caption;
-        cadena=Label55->Caption;
-        returntonumber(cadena);
-        Form12->QRLabel9->Caption=Label45->Caption;
-        Form12->QRLabel10->Caption=Label43->Caption;
-        Form12->QRLabel12->Caption=x+y+z;
+        if(!repararlo.IsEmpty())
+                cadena+="'ESTA OTRA PIEZA A MENCIONAR POSEE DEFORMACION REPARABLE: "+repararlo+"')";//piezas reparar
+        else{
+                cadena+="''";
         }
-        Form12->QuickRep3->Preview();
+        Query1->Close();
+        Query1->SQL->Clear();
+        Query1->SQL->Add(cadena);
+        Query1->ExecSQL();
+        Crpe1->Clear();
+        Crpe1->ReportName="REPORTE\\reporte.rpt";
+        Crpe1->Connect->Password="";
+        Crpe1->Selection->Formula->Clear();
+        Crpe1->Selection->Formula->Add("{reporte.id}=1");
+        Crpe1->Execute();
+
+
+
+
+
 
 }
 //---------------------------------------------------------------------------
@@ -807,34 +793,17 @@ void __fastcall TForm1::returntonumber(String cadena){
         if(x>=0){
                 Cadena+="BOLIVARES ";
         }
-        Form12->QRMemo3->Lines->Add("CONCLUYO     QUE     EL     VALOR     APROXIMADO     DE     LOS     DAÑOS     IDENTIFICADOS      PARA      LA     PRESENTE     FECHA,     ASCIENDEN     A");
-        cadena=FormatFloat("##,###,###",cadena.ToDouble());
-        Form12->QRMemo3->Lines->Add("LA CANTIDAD DE: "+Cadena+" ("+cadena+" BS.F)");
-        Form12->QRMemo3->Lines->Add("");
-        Form12->QRMemo3->Lines->Add("LA  REVISIÓN  DEL  BIEN  SE  HIZO  EN:  "+Label47->Caption+",  LUGAR  DONDE  SE  ENCONTRABA  AL  MOMENTO");
-        Form12->QRMemo3->Lines->Add("DE SU INSPECCIÓN. SALVO LOS DAÑOS OCULTOS NO OBSERVADOS EN  LA  REVISIÓN EFECTUADA SE TERMINÓ  Y  CONFORME  FIRMA.");
-        Form12->QRMemo3->Lines->Add("ANEXO: FOTOGRAFÍA AL REVERSO.");
-        Form12->QRMemo3->Lines->Add("* DATOS SUMINISTRADOS POR EL INTERESADO");
-        Form12->QRMemo3->Lines->Add("");
-        Form12->QRMemo3->Lines->Add("");
-        Form12->QRMemo3->Lines->Add("");
-        Form12->QRMemo3->Lines->Add("");
-        Form12->QRMemo3->Lines->Add("");
-        Form12->QRMemo3->Lines->Add("                                                                 ___________________________________");
-        Form12->QRMemo3->Lines->Add("                                                                           PERTIO AVALUADOR");
+        Form3->CADENA=Cadena;
 }
 
-void __fastcall TForm1::VerReporte1Click(TObject *Sender)
-{
-        Form13->QuickRep1->Preview();
-}
-//---------------------------------------------------------------------------
 
 
 void __fastcall TForm1::NuevaActa1Click(TObject *Sender)
 {
         ListBox1->Clear();
         ListBox2->Clear();
+        Image6->Visible=true;
+        Image12->Visible=false;
         for (int i=0;i<totalreparar;i++)
                 CheckListBox1->Checked[i]=false;
         for (int i=0;i<totalcambiar;i++)
@@ -886,6 +855,28 @@ void __fastcall TForm1::Autopartes1Click(TObject *Sender)
         llamalo();
         Form15->rellenar();
         Form15->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::Image13Click(TObject *Sender)
+{
+        Image13->Visible=false;
+        Image14->Visible=true;
+        Panel1->Width=800;
+        Panel6->Width=400;
+        Panel7->Width=400;
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image14Click(TObject *Sender)
+{
+        Image14->Visible=false;
+        Image13->Visible=true;
+        Panel1->Width=400;
+        Panel6->Width=200;
+        Panel7->Width=200;
 }
 //---------------------------------------------------------------------------
 
