@@ -7,6 +7,7 @@
 #include "Unit16.h"
 #include "Unit18.h"
 #include "Unit1.h"
+#include "Unit21.h"
 #include "ctype.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -18,6 +19,8 @@ String DIA[100],MESES[100],HORA[100],MINUTOS[100],AMPM[100]={"AM","PM"};
 __fastcall TForm3::TForm3(TComponent* Owner)
         : TForm(Owner)
 {
+        AMPM[1]="AM";
+        AMPM[2]="PM";
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm3::ciudad(){
@@ -31,17 +34,21 @@ void __fastcall TForm3::ciudad(){
         Query1->First();
         ComboBox9->Clear();
         ComboBox9->Text="Seleccione";
+        Form21->ComboBox9->Clear();
+        Form21->ComboBox9->Text="Seleccione";
         CIUDAD=0;
         while(!Query1->Eof){
                 band=true;
                 cadena=Query1->FieldByName("nombre")->Value;
                 Ciudad[CIUDAD]=cadena;
+                Form21->ComboBox9->Items->Add(cadena);
                 ComboBox9->Items->Add(cadena);
                 CIUDAD++;
                 Query1->Next();
         }
         if(band==false){
-                ComboBox9->Items->Add("No hay registros");
+                ComboBox9->Text="No Hay Registros";
+                Form21->ComboBox9->Text="No Hay Registros";
         }
 }
 void __fastcall TForm3::direccion(){
@@ -55,17 +62,21 @@ void __fastcall TForm3::direccion(){
         Query1->First();
         ComboBox8->Clear();
         ComboBox8->Text="Seleccione";
+        Form21->ComboBox8->Clear();
+        Form21->ComboBox8->Text="Seleccione";
         DIRECCION=0;
         while(!Query1->Eof){
                 band=true;
                 cadena=Query1->FieldByName("lugar")->Value;
                 Direccion[DIRECCION]=cadena;
                 ComboBox8->Items->Add(cadena);
+                Form21->ComboBox8->Items->Add(cadena);
                 DIRECCION++;
                 Query1->Next();
         }
         if(band==false){
-                ComboBox8->Items->Add("No hay registros");
+                ComboBox8->Text="No Hay Registro";
+                Form21->ComboBox8->Text="No Hay Registro";
         }
 }
 void __fastcall TForm3::formularXD(){
@@ -77,6 +88,13 @@ void __fastcall TForm3::formularXD(){
 //        Memo2->Clear();
         Edit3->Clear();
         Edit4->Clear();
+        Form21->Edit1->Text="20";
+        Form21->Edit5->Text="20";
+        Form21->Edit2->Clear();
+        Form21->Memo1->Clear();
+//        Memo2->Clear();
+        Form21->Edit3->Clear();
+        Form21->Edit4->Clear();
         ComboBox1->Clear();
         ComboBox2->Clear();
         ComboBox3->Clear();
@@ -84,6 +102,13 @@ void __fastcall TForm3::formularXD(){
         ComboBox5->Clear();
         ComboBox6->Clear();
         ComboBox7->Clear();
+        Form21->ComboBox1->Clear();
+        Form21->ComboBox2->Clear();
+        Form21->ComboBox3->Clear();
+        Form21->ComboBox4->Clear();
+        Form21->ComboBox5->Clear();
+        Form21->ComboBox6->Clear();
+        Form21->ComboBox7->Clear();
         ComboBox2->Text="Mes";
         ComboBox7->Text="Mes";
         ComboBox3->Text="Hora";
@@ -91,8 +116,18 @@ void __fastcall TForm3::formularXD(){
         ComboBox6->Text="Dia";
         ComboBox4->Text="Min";
         ComboBox5->Text="AM/PM";
+        Form21->ComboBox2->Text="Mes";
+        Form21->ComboBox7->Text="Mes";
+        Form21->ComboBox3->Text="Hora";
+        Form21->ComboBox1->Text="Dia";
+        Form21->ComboBox6->Text="Dia";
+        Form21->ComboBox4->Text="Min";
+        Form21->ComboBox5->Text="AM/PM";
         ComboBox5->Items->Add(AMPM[0]);
         ComboBox5->Items->Add(AMPM[1]);
+        Form21->ComboBox5->Items->Add(AMPM[0]);
+        Form21->ComboBox5->Items->Add(AMPM[1]);
+
         for (int i=0;i<12;i++){
                 MESES[i]=NULL;
                 HORA[i]=NULL;
@@ -108,6 +143,9 @@ void __fastcall TForm3::formularXD(){
                         ComboBox2->Items->Add(MESES[i]);
                         ComboBox3->Items->Add(HORA[i]);
                         ComboBox7->Items->Add(MESES[i]);
+                        Form21->ComboBox2->Items->Add(MESES[i]);
+                        Form21->ComboBox3->Items->Add(HORA[i]);
+                        Form21->ComboBox7->Items->Add(MESES[i]);
                 }else{
                         aux=i+1;
                         MESES[i]=aux;
@@ -115,6 +153,9 @@ void __fastcall TForm3::formularXD(){
                         ComboBox2->Items->Add(MESES[i]);
                         ComboBox3->Items->Add(HORA[i]);
                         ComboBox7->Items->Add(MESES[i]);
+                        Form21->ComboBox2->Items->Add(MESES[i]);
+                        Form21->ComboBox3->Items->Add(HORA[i]);
+                        Form21->ComboBox7->Items->Add(MESES[i]);
                 }
         }
         for (int i=0;i<31;i++){
@@ -128,11 +169,15 @@ void __fastcall TForm3::formularXD(){
                         DIA[i]+=aux;
                         ComboBox6->Items->Add(DIA[i]);
                         ComboBox1->Items->Add(DIA[i]);
+                        Form21->ComboBox6->Items->Add(DIA[i]);
+                        Form21->ComboBox1->Items->Add(DIA[i]);
                 }else{
                         aux=i+1;
                         DIA[i]=aux;
                         ComboBox6->Items->Add(DIA[i]);
                         ComboBox1->Items->Add(DIA[i]);
+                        Form21->ComboBox6->Items->Add(DIA[i]);
+                        Form21->ComboBox1->Items->Add(DIA[i]);
                 }
         }
         for (int i=0;i<60;i++){
@@ -145,10 +190,12 @@ void __fastcall TForm3::formularXD(){
                         aux=i;
                         MINUTOS[i]+=aux;
                         ComboBox4->Items->Add(MINUTOS[i]);
+                        Form21->ComboBox4->Items->Add(MINUTOS[i]);
                 }else{
                         aux=i;
                         MINUTOS[i]=aux;
                         ComboBox4->Items->Add(MINUTOS[i]);
+                        Form21->ComboBox4->Items->Add(MINUTOS[i]);
                 }
         }
 

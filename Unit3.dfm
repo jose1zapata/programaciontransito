@@ -1,6 +1,6 @@
 object Form3: TForm3
-  Left = 336
-  Top = 78
+  Left = 168
+  Top = 80
   Align = alCustom
   BorderStyle = bsNone
   Caption = 'Form3'

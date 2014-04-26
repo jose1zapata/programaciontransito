@@ -6,14 +6,16 @@
     <PROJECT value="Project1.exe"/>
     <OBJFILES value="Project1.obj Unit1.obj Unit2.obj Unit3.obj Unit4.obj Unit5.obj Unit6.obj 
       Unit7.obj Unit8.obj Unit9.obj Unit10.obj Unit11.obj Unit12.obj Unit13.obj 
-      Unit14.obj Unit15.obj otra.obj Unit17.obj Unit18.obj"/>
+      Unit14.obj Unit15.obj otra.obj Unit17.obj Unit18.obj Unit19.obj Unit20.obj 
+      Unit21.obj"/>
     <RESFILES value="Project1.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES) Unit1.dfm Unit2.dfm Unit3.dfm Unit4.dfm Unit5.dfm Unit6.dfm 
       Unit7.dfm Unit8.dfm Unit9.dfm Unit10.dfm Unit11.dfm Unit12.dfm Unit13.dfm 
-      Unit14.dfm Unit15.dfm otra.dfm Unit17.dfm Unit18.dfm"/>
+      Unit14.dfm Unit15.dfm otra.dfm Unit17.dfm Unit18.dfm Unit19.dfm Unit20.dfm 
+      Unit21.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value="qrpt.lib bdertl.lib dbrtl.lib vcldb.lib vclx.lib rtl.lib vcl.lib"/>
     <SPARELIBS value="vcl.lib rtl.lib vclx.lib vcldb.lib dbrtl.lib bdertl.lib qrpt.lib"/>
@@ -80,6 +82,9 @@
       <FILE FILENAME="otra.cpp" FORMNAME="Form16" UNITNAME="otra" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit17.cpp" FORMNAME="Form17" UNITNAME="Unit17" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="Unit18.cpp" FORMNAME="Form18" UNITNAME="Unit18" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Unit19.cpp" FORMNAME="Form19" UNITNAME="Unit19" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Unit20.cpp" FORMNAME="Form20" UNITNAME="Unit20" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="Unit21.cpp" FORMNAME="Form21" UNITNAME="Unit21" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

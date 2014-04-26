@@ -92,6 +92,12 @@ void __fastcall TForm11::Image1Click(TObject *Sender)
                 color=Query1->FieldByName("color_id")->Value;
                 seguro=Query1->FieldByName("seguro_id")->Value;
                 conductor=Query1->FieldByName("conductores_id")->Value;
+                valor="select * from uso where id="+Form1->Label59->Caption;
+                Query1->Close();
+                Query1->SQL->Clear();
+                Query1->SQL->Add(valor);
+                Query1->Active=true;
+                Form1->Label59->Caption=Query1->FieldByName("nombre")->Value;
                 valor="select * from marca where id="+marca;
                 Query1->Close();
                 Query1->SQL->Clear();

@@ -4,13 +4,14 @@
 #pragma hdrstop
 
 #include "Unit4.h"
-#include "Unit1.h"
+#include "Unit1.h"                                    '
 #include "Unit5.h"
 #include "Unit6.h"
 #include "Unit7.h"
 #include "Unit8.h"
 #include "Unit9.h"
 #include "Unit17.h"
+#include "Unit20.h"
 #include "ctype.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -26,6 +27,8 @@ __fastcall TForm4::TForm4(TComponent* Owner)
 void __fastcall TForm4::uso(){
         ComboBox7->Clear();
         ComboBox7->Text="Seleccione";
+        Form20->ComboBox6->Clear();
+        Form20->ComboBox6->Text="Seleccione";
         String cadena;
         cadena="select * from uso";
         Query1->Close();
@@ -38,6 +41,7 @@ void __fastcall TForm4::uso(){
                 cadena=Query1->FieldByName("nombre")->Value;
                 Uso[USO]=cadena;
                 ComboBox7->Items->Add(cadena);
+                Form20->ComboBox6->Items->Add(cadena);
                 USO++;
                 Query1->Next();
         }
@@ -52,6 +56,8 @@ void __fastcall TForm4::marca()
         Query1->Active=true;
         ComboBox1->Clear();
         ComboBox1->Text="Seleccione";
+        Form20->ComboBox1->Clear();
+        Form20->ComboBox1->Text="Seleccione";
         MARCA=0;
         Query1->First();
         while(!Query1->Eof){
@@ -60,6 +66,7 @@ void __fastcall TForm4::marca()
                 Marca[MARCA][0]=marquita;
                 Marca[MARCA][1]=id;
                 ComboBox1->Items->Add(marquita);
+                Form20->ComboBox1->Items->Add(marquita);
                 MARCA++;
                 Query1->Next();
         }
@@ -80,9 +87,12 @@ void __fastcall TForm4::anho()
         valor=atoi(aux.c_str());
         ComboBox6->Clear();
         ComboBox6->Text="Seleccione";
+        Form20->ComboBox5->Clear();
+        Form20->ComboBox5->Text="Seleccione";
         for (int i=0;i<=total;i++)
         {
                 ComboBox6->Items->Add(valor);
+                Form20->ComboBox5->Items->Add(valor);
                 Anho[i]=valor;
                 valor=valor-1;
                 ANHO=i;
@@ -114,12 +124,24 @@ void __fastcall TForm4::Image6Click(TObject *Sender)
                 Form6->marca_id=x;
                 Form6->ShowModal();
         }
-        else
-                MessageDlg("Seleccione una marca de vehiculo antes de agregar un modelo", mtInformation, TMsgDlgButtons() << mbOK, 0);
+        else{
+                if(Form20->ComboBox1->ItemIndex!=-1){
+                        Form6->Label2->Caption=""+Marca[ComboBox1->ItemIndex][0]+"";
+                        x=Marca[ComboBox1->ItemIndex][1];
+                        Form6->marca_id=x;
+                        Form6->ShowModal();
+                }else
+                        MessageDlg("Seleccione una marca de vehiculo antes de agregar un modelo", mtInformation, TMsgDlgButtons() << mbOK, 0);
+        }
+
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm4::modelo(){
-        String consulta="select * from modelo where marca_id="+Marca[ComboBox1->ItemIndex][1]+"",modelito;
+        String consulta,modelito;
+        if(ComboBox1->ItemIndex!=-1)
+        consulta="select * from modelo where marca_id="+Marca[ComboBox1->ItemIndex][1]+"";
+        else
+        consulta="select * from modelo where marca_id="+Marca[Form20->ComboBox1->ItemIndex][1]+"",modelito;
         int id=0;
         Query1->Close();
         Query1->SQL->Clear();
@@ -127,6 +149,8 @@ void __fastcall TForm4::modelo(){
         Query1->Active=true;
         ComboBox2->Clear();
         ComboBox2->Text="Seleccione";
+        Form20->ComboBox2->Clear();
+        Form20->ComboBox2->Text="Seleccione";
         MODELO=0;
         Query1->First();
         while(!Query1->Eof){
@@ -135,6 +159,7 @@ void __fastcall TForm4::modelo(){
                 Modelo[MODELO][0]=modelito;
                 Modelo[MODELO][1]=id;
                 ComboBox2->Items->Add(modelito);
+                Form20->ComboBox2->Items->Add(modelito);
                 MODELO++;
                 Query1->Next();
         }
@@ -154,6 +179,8 @@ void __fastcall TForm4::colores()
         Query1->Active=true;
         ComboBox4->Clear();
         ComboBox4->Text="Seleccione";
+        Form20->ComboBox4->Clear();
+        Form20->ComboBox4->Text="Seleccione";
         COLOR=0;
         Query1->First();
         while(!Query1->Eof){
@@ -162,6 +189,7 @@ void __fastcall TForm4::colores()
                 Colorete[COLOR][0]=Colors;
                 Colorete[COLOR][1]=id;
                 ComboBox4->Items->Add(Colors);
+                Form20->ComboBox4->Items->Add(Colors);
                 COLOR++;
                 Query1->Next();
         }
@@ -181,6 +209,8 @@ void __fastcall TForm4::tipo(){
         Query1->Active=true;
         ComboBox3->Clear();
         ComboBox3->Text="Seleccione";
+        Form20->ComboBox3->Clear();
+        Form20->ComboBox3->Text="Seleccione";
         TIPO=0;
         Query1->First();
         while(!Query1->Eof){
@@ -189,6 +219,7 @@ void __fastcall TForm4::tipo(){
                 Tipo[TIPO][0]=Tipos;
                 Tipo[TIPO][1]=id;
                 ComboBox3->Items->Add(Tipos);
+                Form20->ComboBox3->Items->Add(Tipos);
                 TIPO++;
                 Query1->Next();
         }
@@ -247,6 +278,8 @@ void __fastcall TForm4::seguro(){
         Query1->Active=true;
         ComboBox5->Clear();
         ComboBox5->Text="Seleccione";
+        Form20->ComboBox7->Clear();
+        Form20->ComboBox7->Text="Seleccione";
         SEGURO=0;
         Query1->First();
         while(!Query1->Eof){
@@ -255,6 +288,7 @@ void __fastcall TForm4::seguro(){
                 Seguro[SEGURO][0]=seguross;
                 Seguro[SEGURO][1]=id;
                 ComboBox5->Items->Add(seguross);
+                Form20->ComboBox7->Items->Add(seguross);
                 SEGURO++;
                 Query1->Next();
         }

@@ -13,6 +13,9 @@
 #include "Unit13.h"
 #include "Unit14.h"
 #include "Unit15.h"
+#include "Unit19.h"
+#include "Unit20.h"
+#include "Unit21.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "UCrpe32"
@@ -877,6 +880,55 @@ void __fastcall TForm1::Image14Click(TObject *Sender)
         Panel1->Width=400;
         Panel6->Width=200;
         Panel7->Width=200;
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm1::Image15Click(TObject *Sender)
+{
+
+        if(!Label17->Caption.IsEmpty()){
+        Form19->Edit1->Text=Label7->Caption;
+        Form19->Edit2->Text=Label5->Caption;
+        Form19->Edit3->Text=Label11->Caption;
+        Form19->Edit4->Text=Label9->Caption;
+        Form19->Edit5->Text=Label13->Caption;
+        Form19->Memo1->Text=Label15->Caption;
+        Form19->Label8->Caption=Label17->Caption;
+        Form19->ShowModal();
+        }else{
+                MessageDlg("Debe agregar un conductor con su respectivo propietario primero, para luego modificar...",mtInformation,TMsgDlgButtons()<<mbOK,0);
+        }
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm1::Image16Click(TObject *Sender)
+{
+        if(!Label39->Caption.IsEmpty()){
+        Form4->marca();
+        Form4->colores();
+        Form4->tipo();
+        Form4->seguro();
+        Form4->anho();
+        Form4->uso();
+        Form20->acomodar(Sender);
+        Form20->ShowModal();
+        }else{
+                MessageDlg("Debe estar agregado un vehiculo primero para luego modificar...",mtInformation,TMsgDlgButtons()<<mbOK,0);
+        }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image17Click(TObject *Sender)
+{
+        Form3->formularXD();
+        Form3->direccion();
+        Form3->ciudad();
+        Form21->ajustar();
+        Form21->ShowModal();
 }
 //---------------------------------------------------------------------------
 

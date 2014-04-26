@@ -144,6 +144,15 @@ __published:	// IDE-managed Components
         TImage *Image13;
         TImage *Image14;
         TCrpe *Crpe1;
+        TMenuItem *Marca1;
+        TMenuItem *Modelo1;
+        TMenuItem *Tipo1;
+        TMenuItem *Color1;
+        TMenuItem *Seguro1;
+        TImage *Image15;
+        TImage *Image16;
+        TImage *Image17;
+        TImage *Image18;
         void __fastcall Image1Click(TObject *Sender);
         void __fastcall Image4Click(TObject *Sender);
         void __fastcall Image2Click(TObject *Sender);
@@ -160,6 +169,9 @@ __published:	// IDE-managed Components
         void __fastcall Autopartes1Click(TObject *Sender);
         void __fastcall Image13Click(TObject *Sender);
         void __fastcall Image14Click(TObject *Sender);
+        void __fastcall Image15Click(TObject *Sender);
+        void __fastcall Image16Click(TObject *Sender);
+        void __fastcall Image17Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         String reparar[30000],selectreparar[30000],idreparar[30000];

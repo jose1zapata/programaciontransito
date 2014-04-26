@@ -73,6 +73,8 @@ public:		// User declarations
         __fastcall TForm3(TComponent* Owner);
         String idperito,numerito,CADENA;
         String Direccion[10000],Ciudad[10000];
+        String DIA[100],MESES[100],HORA[100],MINUTOS[100];
+        String AMPM[100];
         int DIRECCION,CIUDAD;
        void  __fastcall formularXD();
        void __fastcall ciudad();

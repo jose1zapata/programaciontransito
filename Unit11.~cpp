@@ -68,7 +68,7 @@ void __fastcall TForm11::Image1Click(TObject *Sender)
                 x=Query1->FieldByName("monto")->Value;
                 y=Query1->FieldByName("montoletra")->Value;
                 Form1->Label53->Caption=Query1->FieldByName("hora")->Value;
-                Form1->Label55->Caption=y+" Bs. ("+x+").";
+                Form1->Label55->Caption=y+" BOLIVARES. ("+x+" Bs).";
                 Form1->Label51->Caption=Query1->FieldByName("fecha")->Value;
                 Form1->Label49->Caption=Query1->FieldByName("direccion")->Value;
                 Form1->Label39->Caption=Query1->FieldByName("vehiculo_id")->Value;
