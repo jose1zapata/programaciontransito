@@ -193,7 +193,7 @@ void __fastcall TForm1::Image6Click(TObject *Sender)
                 }
                 MessageDlg("Agregado con éxito",mtInformation,TMsgDlgButtons()<<mbOK,0);
                 Image6->Visible=false;
-                Image12->Visible=true;        
+                Image12->Visible=true;
         }else{
                 MessageDlg("Debes seleccionar autopartes de cambio o reparación primero", mtInformation, TMsgDlgButtons() << mbOK, 0);
         }
@@ -929,6 +929,47 @@ void __fastcall TForm1::Image17Click(TObject *Sender)
         Form3->ciudad();
         Form21->ajustar();
         Form21->ShowModal();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Image18Click(TObject *Sender)
+{
+        activado=3;
+        MessageDlg("Ahora puede seleccionar y asignar autopartes",mtInformation,TMsgDlgButtons()<<mbOK,0);
+        Image12->Visible=false;
+        Image19->Visible=true;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::Image19Click(TObject *Sender)
+{
+        llamalo();
+        String cadena;
+        String accidente=Label57->Caption;
+        if(activado==4){
+                for (int i=0;i<totalselectreparar;i++)
+                {
+                        cadena="update accidentesautoparte autoparte_id="+selectreparar[i]+" where id="+accidente;
+                        Query1->Close();
+                        Query1->SQL->Clear();
+                        Query1->SQL->Add(cadena);
+                        Query1->ExecSQL();
+                }
+                for (int i=0;i<totalselectcambiar;i++)
+                {
+                        cadena="update accidentesautoparte autoparte_id="+selectcambiar[i]+" where id="+accidente;
+                        Query1->Close();
+                        Query1->SQL->Clear();
+                        Query1->SQL->Add(cadena);
+                        Query1->ExecSQL();
+                }
+                MessageDlg("Modificado con éxito",mtInformation,TMsgDlgButtons()<<mbOK,0);
+                Image19->Visible=false;
+                Image12->Visible=true;
+        }else{
+                MessageDlg("Debes seleccionar autopartes de cambio o reparación primero", mtInformation, TMsgDlgButtons() << mbOK, 0);
+        }
 }
 //---------------------------------------------------------------------------
 

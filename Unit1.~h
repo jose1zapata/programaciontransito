@@ -153,6 +153,7 @@ __published:	// IDE-managed Components
         TImage *Image16;
         TImage *Image17;
         TImage *Image18;
+        TImage *Image19;
         void __fastcall Image1Click(TObject *Sender);
         void __fastcall Image4Click(TObject *Sender);
         void __fastcall Image2Click(TObject *Sender);
@@ -172,6 +173,8 @@ __published:	// IDE-managed Components
         void __fastcall Image15Click(TObject *Sender);
         void __fastcall Image16Click(TObject *Sender);
         void __fastcall Image17Click(TObject *Sender);
+        void __fastcall Image18Click(TObject *Sender);
+        void __fastcall Image19Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         String reparar[30000],selectreparar[30000],idreparar[30000];
