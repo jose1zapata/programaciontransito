@@ -71,6 +71,7 @@ void __fastcall TForm21::ajustar()
         char cadena[20],*p;
         int i=0;
         //configurando la fecha de avaluo
+
         aux=Form1->Label41->Caption;
         StrCopy(cadena,aux.c_str());
         p=strtok(cadena,"-");
@@ -184,19 +185,19 @@ void __fastcall TForm21::ajustar()
         String viendo;
         viendo=Query1->FieldByName("ciudadinspeccion_id")->Value;
         ComboBox9->ItemIndex=atoi(viendo.c_str())-1;
-
+        y=Edit3->Text;
 
 }
 
 void __fastcall TForm21::Edit2KeyPress(TObject *Sender, char &Key)
 {
-        Key=toupper(Key);        
+        Key=toupper(Key);
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm21::Edit6KeyPress(TObject *Sender, char &Key)
 {
-        Edit2KeyPress(Sender,Key);        
+        Edit2KeyPress(Sender,Key);
 }
 //---------------------------------------------------------------------------
 
@@ -214,13 +215,13 @@ void __fastcall TForm21::Edit3KeyPress(TObject *Sender, char &Key)
 
 void __fastcall TForm21::Edit4KeyPress(TObject *Sender, char &Key)
 {
-        Edit2KeyPress(Sender,Key);        
+        Edit2KeyPress(Sender,Key);
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm21::Image2Click(TObject *Sender)
 {
-String cadena,fechaaccidente,hora;
+String cadena,fechaaccidente,hora,x,fechaavaluo,z;
         fechaaccidente=Edit1->Text+"-"+Form3->MESES[ComboBox2->ItemIndex]+"-"+Form3->DIA[ComboBox1->ItemIndex];
         hora=Form3->HORA[ComboBox3->ItemIndex]+":"+Form3->MINUTOS[ComboBox4->ItemIndex]+" "+Form3->AMPM[ComboBox5->ItemIndex];
         cadena="update accidente set direccion='"+Edit7->Text+"', ";
@@ -233,9 +234,25 @@ String cadena,fechaaccidente,hora;
         Query1->SQL->Clear();
         Query1->SQL->Add(cadena);
         Query1->ExecSQL();
+
+        cadena="update avaluo set id='"+Edit3->Text+"', ";
+        cadena+="expediente='"+Edit4->Text+"', ";
+        x=ComboBox8->ItemIndex+1;
+        cadena+="direccionrevision_id="+x+", ";
+        fechaavaluo=Edit5->Text+"-"+Form3->MESES[ComboBox6->ItemIndex]+"-"+Form3->DIA[ComboBox6->ItemIndex];
+        cadena+="fecha='"+fechaavaluo+"', ";
+        z=ComboBox9->ItemIndex+1;
+        cadena+="ciudadinspeccion_id="+(z);
+
+        cadena+=" where id='"+y+"'";
+        Query1->Close();
+        Query1->SQL->Clear();
+        Query1->SQL->Add(cadena);
+        Query1->ExecSQL();
         Form21->Close();
+        MessageDlg("Debe estar agregado un vehiculo primero para luego modificar...",mtInformation,TMsgDlgButtons()<<mbOK,0);
         Form11->Edit1->Text=Form1->Label43->Caption;
-        Form11->Image1Click(Sender);        
+        Form11->Image1Click(Sender);
 }
 //---------------------------------------------------------------------------
 

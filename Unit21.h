@@ -57,6 +57,7 @@ public:		// User declarations
         void __fastcall dia(String x,int ban);
         void __fastcall minutos(String x);
         void __fastcall mes(String x,int ban);
+        String y;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm21 *Form21;

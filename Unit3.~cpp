@@ -91,7 +91,7 @@ void __fastcall TForm3::formularXD(){
         Form21->Edit1->Text="20";
         Form21->Edit5->Text="20";
         Form21->Edit2->Clear();
-        Form21->Memo1->Clear();
+        Form21->Edit7->Clear();
 //        Memo2->Clear();
         Form21->Edit3->Clear();
         Form21->Edit4->Clear();

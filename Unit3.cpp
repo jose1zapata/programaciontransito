@@ -19,8 +19,8 @@ String DIA[100],MESES[100],HORA[100],MINUTOS[100],AMPM[100]={"AM","PM"};
 __fastcall TForm3::TForm3(TComponent* Owner)
         : TForm(Owner)
 {
-        AMPM[1]="AM";
-        AMPM[2]="PM";
+        AMPM[0]="AM";
+        AMPM[1]="PM";
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm3::ciudad(){

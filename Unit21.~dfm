@@ -2235,6 +2235,7 @@ object Form21: TForm21
         1D25E0F3F634263936C9B7BC6D9FF87ECED9DA1F99D0DCD0E93F48E56BA41CD8
         9C4FC6CB7659251193FFD9}
       Stretch = True
+      OnClick = Image3Click
     end
   end
   object Panel3: TPanel
